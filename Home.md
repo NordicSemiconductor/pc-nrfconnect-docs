@@ -2,7 +2,7 @@
 
 ### Basics
 
-* [[Project setup]]
+* [[Getting started]]
 * [[Publishing to npm registry]]
 
 ### API
