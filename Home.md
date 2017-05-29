@@ -8,7 +8,7 @@
 ### API
 
 * [[API reference]]
-* [[Libraries]]
+* [[Modules]]
 
 ### Examples
 
