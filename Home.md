@@ -16,4 +16,4 @@
 * [[Adding custom components]]
 * [[Opening selected serial port]]
 * [[Programming selected serial port]]
-* [[Using Bluetooth™ low energy driver]]
+* [[Using Bluetooth® low energy driver]]
