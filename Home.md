@@ -8,7 +8,7 @@
 ### API
 
 * [[API reference]]
-* [[Importing libraries]]
+* [[Libraries]]
 
 ### Examples
 
