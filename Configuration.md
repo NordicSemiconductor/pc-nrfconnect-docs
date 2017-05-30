@@ -1,6 +1,6 @@
 ## Properties in package.json
 
-The following package.json properties are especially relevant for nRF Connect apps:
+The following package.json properties should be configured by nRF Connect apps:
 
 | Property | Description |
 | -------- | ----------- |
