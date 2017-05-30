@@ -29,13 +29,13 @@ Some modules may not be possible to bundle with webpack. This could be native mo
 
 ## Webpack
 
-The [nRF Connect boilerplate app](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate) comes with a webpack configuration that is ready to use. Normally, app developers should not need to edit this, but in some special cases it might be necessary, e.g. to add extra loaders, file extensions, etc. The default webpack configuration is briefly described here.
+The [nRF Connect boilerplate app](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate) comes with a webpack configuration that is ready to use. Normally, app developers should not need to edit this, but in some special cases it might be necessary, e.g. to add extra loaders, file extensions, etc. Refer to the [webpack documentation](https://webpack.js.org/) for more information. The below sections describe a few peculiarities about webpack in nRF Connect that might be useful to know.
 
 ### Externals
 
-Apps can import a few [[modules|Modules]] from nRF Connect. Webpack should ignore these, as they are only available at runtime. To make webpack ignore the modules, they have been added as [externals](https://webpack.js.org/configuration/externals/). In addition, any `dependencies` from package.json are automatically configured as externals.
+Apps can import a few [[modules|Modules]] from nRF Connect. The default webpack configuration ignores these by adding them as [externals](https://webpack.js.org/configuration/externals/), as they are only available at runtime. The same is automatically done for any `dependencies` from package.json.
 
-### Static resources
+### Public path and static resources
 
 The apps can import static resources such as images, which is bundled by webpack. For this to work, the app needs to set `__webpack_public_path__` to the app directory at runtime, before importing static resources. This should be done in a separate file, e.g. `setup.js` that is imported at the top of `index.jsx`:
 
