@@ -1,4 +1,4 @@
-## package.json
+## Properties in package.json
 
 The following package.json properties are especially relevant for nRF Connect apps:
 
@@ -26,3 +26,34 @@ Usually, apps will depend on other modules from the npm registry. Dependencies c
 When using webpack, we recommended using `devDependencies` instead of `dependencies`. This will keep the app's size to a minimum. The `dependencies` are installed when the user installs the app in nRF Connect, while `devDependencies` are only installed during development. With webpack, code from all dependencies is bundled when building the app, so the dependencies should not be needed anymore after the app has been built.
 
 Some modules may not be possible to bundle with webpack. This could be native modules or modules that use some special syntax that webpack does not support. Those modules need to be added to `dependencies` instead of `devDependencies`.
+
+## Webpack
+
+The [nRF Connect boilerplate app](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate) comes with a webpack configuration that is ready to use. Normally, app developers should not need to edit this, but in some special cases it might be necessary, e.g. to add extra loaders, file extensions, etc. The default webpack configuration is briefly described here.
+
+### Externals
+
+Apps can import a few [[modules|Modules]] from nRF Connect. Webpack should ignore these, as they are only available at runtime. To make webpack ignore the modules, they have been added as [externals](https://webpack.js.org/configuration/externals/). In addition, any `dependencies` from package.json are automatically configured as externals.
+
+### Static resources
+
+The apps can import static resources such as images, which is bundled by webpack. For this to work, the app needs to set `__webpack_public_path__` to the app directory at runtime, before importing static resources. This should be done in a separate file, e.g. `setup.js` that is imported at the top of `index.jsx`:
+
+```
+// setup.js:
+
+import path from 'path';
+import core from 'nrfconnect/core';
+
+__webpack_public_path__ = path.join(core.getAppDir(), 'dist/');
+```
+
+When this is configured, React components can import and render images, e.g:
+
+```
+import image from './resources/image.png';
+
+const MyComponent = () => (
+    <img src={image} alt='My image' />
+);
+```
