@@ -3,7 +3,7 @@
 ### Basics
 
 * [[Getting started]]
-* [[Publishing to npm registry]]
+* [[Configuration]]
 
 ### API
 
