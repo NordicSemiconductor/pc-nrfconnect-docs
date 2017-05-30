@@ -8,8 +8,8 @@ decorateNavMenu: NavMenu => (
         <NavMenu
             {...props}
             menuItems={[
-                { id: 'SEARCH', text: 'Search', iconClass: 'icon-search' },
-                { id: 'SETTINGS', text: 'Settings', iconClass: 'icon-wrench' },
+                { id: 0, text: 'Search', iconClass: 'icon-search' },
+                { id: 1, text: 'Settings', iconClass: 'icon-wrench' },
             ]}
         />
     )
@@ -22,4 +22,67 @@ Our functional component receives the `props` that are passed to `NavMenu`. See 
 
 ## Use selected menu item
 
-TODO
+We have now added some items, but so far nothing will happen in the UI when selecting them. By default, when clicking a menu item, a `NAV_MENU_ITEM_SELECTED` action is dispatched with the selected item ID. This action is handled by the [navMenuReducer](https://github.com/NordicSemiconductor/pc-nrfconnect-core/blob/master/lib/windows/app/reducers/navMenuReducer.js), which sets `state.core.navMenu.selectedItemId`.
+
+Let us say you want to render different content in the `MainView` based on the selected menu item. Then pass `state.core.navMenu.selectedItemId` to the `MainView` using `mapMainViewState`:
+
+```
+mapMainViewState: (state, props) => ({
+    ...props,
+    selectedMenuItemId: state.core.navMenu.selectedItemId,
+}),
+```
+
+The `MainView` will now receive a `selectedMenuItemId` prop that you can use to render conditionally:
+
+```
+decorateMainView: MainView => (
+    props => (
+        <MainView>
+            { props.selectedMenuItemId === 0 ? <h1>Search</h1> : <h1>Settings</h1> }
+        </MainView>
+    )
+),
+```
+
+In this example we use `h1` tags, but in practice you would of course create React components for search and settings, and render those instead.
+
+## Full example
+
+To sum up, here is a full example of how navigation can be implemented in an app:
+
+```
+import React from 'react';
+
+const views = [
+    { id: 0, text: 'Search', iconClass: 'icon-search' },
+    { id: 1, text: 'Settings', iconClass: 'icon-wrench' },
+];
+
+function renderView(viewId) {
+    const view = views[viewId];
+    return view ? <h1>{view.text}</h1> : <h1>Welcome</h1>;
+}
+
+export default {
+    decorateNavMenu: NavMenu => (
+        props => (
+            <NavMenu
+                {...props}
+                menuItems={views}
+            />
+        )
+    ),
+    mapMainViewState: (state, props) => ({
+        ...props,
+        selectedMenuItemId: state.core.navMenu.selectedItemId,
+    }),
+    decorateMainView: MainView => (
+        props => (
+            <MainView>
+                { renderView(props.selectedMenuItemId) }
+            </MainView>
+        )
+    ),
+};
+```
