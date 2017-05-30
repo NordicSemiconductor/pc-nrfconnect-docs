@@ -6,7 +6,7 @@ nRF Connect is based on [Electron](https://electron.atom.io/), [React](https://f
 
 ### Install nRF Connect
 
-Before you can create apps, you need to have nRF Connect up and running. Follow the instructions in the [project README](https://github.com/NordicSemiconductor/pc-nrfconnect-core) to either install it or build it from source.
+Before you can create apps, you need to have nRF Connect up and running. Follow the instructions in the [project README](https://github.com/NordicSemiconductor/pc-nrfconnect-core) to either install the binaries or build it from source.
 
 ### Install development tools
 
