@@ -39,7 +39,11 @@ The `MainView` will now receive a `selectedMenuItemId` prop that you can use to 
 decorateMainView: MainView => (
     props => (
         <MainView>
-            { props.selectedMenuItemId === 0 ? <h1>Search</h1> : <h1>Settings</h1> }
+            {
+                props.selectedMenuItemId === 0 ?
+                    <h1>Search</h1> :
+                    <h1>Settings</h1>
+            }
         </MainView>
     )
 ),
