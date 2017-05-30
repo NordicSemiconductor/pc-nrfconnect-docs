@@ -37,7 +37,7 @@ Apps can import a few [[modules|Modules]] from nRF Connect. The default webpack 
 
 ### Public path and static resources
 
-The apps can import static resources such as images, which is bundled by webpack. For this to work, the app needs to set `__webpack_public_path__` to the app directory at runtime, before importing static resources. This should be done in a separate file, e.g. `setup.js` that is imported at the top of `index.jsx`:
+The apps can import static resources such as images, which is bundled by webpack. For this to work, the app needs to set `__webpack_public_path__` at runtime, before importing static resources. This should be done in a separate file, e.g. `setup.js` that is imported before anything else in `index.jsx`:
 
 ```
 // setup.js:
