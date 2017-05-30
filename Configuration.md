@@ -23,6 +23,6 @@ The icon is displayed at 40x40 pixels in the nRF Connect launcher, so make sure 
 
 Usually, apps will depend on other modules from the npm registry. Dependencies can be specified in the app's package.json file. 
 
-When using webpack, we recommended using `devDependencies` instead of `dependencies`. This will keep the app's size to a minimum. The `devDependencies` are only installed during development, while `dependencies` are installed when the user installs the app in nRF Connect. With webpack the code from all dependencies is bundled in when building the app, so the dependencies are only needed during development.
+When using webpack, we recommended using `devDependencies` instead of `dependencies`. This will keep the app's size to a minimum. The `dependencies` are installed when the user installs the app in nRF Connect, while `devDependencies` are only installed during development. With webpack, code from all dependencies is bundled when building the app, so the dependencies should not be needed anymore after the app has been built.
 
 Some modules may not be possible to bundle with webpack. This could be native modules or modules that use some special syntax that webpack does not support. Those modules need to be added to `dependencies` instead of `devDependencies`.
