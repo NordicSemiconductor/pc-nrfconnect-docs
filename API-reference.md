@@ -177,7 +177,7 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
 
 ### Component decoration
 
-Decoration allows the app to render custom components or override props that are passed to components. Also, if a component is not relevant for the app, it can simply choose to not render it.
+Decoration allows the app to render custom components or override props that are passed to components. Also, if a component is not relevant for the app, it can simply choose not to render it.
 
 #### Rendering a custom component
 
