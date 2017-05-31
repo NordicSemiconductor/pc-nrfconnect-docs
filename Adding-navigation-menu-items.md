@@ -3,8 +3,8 @@
 The navigation menu is rendered by the `NavMenu` component. The component receives `menuItems` as a property, so adding your own menu items can be done like this:
 
 ```
-decorateNavMenu: NavMenu => (
-    props => (
+export function decorateNavMenu(NavMenu) {
+    return props => (
         <NavMenu
             {...props}
             menuItems={[
@@ -12,8 +12,8 @@ decorateNavMenu: NavMenu => (
                 { id: 1, text: 'Settings', iconClass: 'icon-wrench' },
             ]}
         />
-    )
-),
+    );
+}
 ```
 
 The `decorateNavMenu` function receives the `NavMenu` component, and must return a new React component. We return a [functional component](https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components) here, but a React class component could also have been used.
@@ -27,17 +27,19 @@ We have now added some items, but so far nothing will happen in the UI when sele
 Let us say you want to render different content in the `MainView` based on the selected menu item. Then pass `state.core.navMenu.selectedItemId` to the `MainView` using `mapMainViewState`:
 
 ```
-mapMainViewState: (state, props) => ({
-    ...props,
-    selectedMenuItemId: state.core.navMenu.selectedItemId,
-}),
+export function mapMainViewState(state, props) {
+    return {
+        ...props,
+        selectedMenuItemId: state.core.navMenu.selectedItemId,
+    };
+}
 ```
 
 The `MainView` will now receive a `selectedMenuItemId` prop that you can use to render conditionally:
 
 ```
-decorateMainView: MainView => (
-    props => (
+export function decorateMainView(MainView) {
+    return props => (
         <MainView>
             {
                 props.selectedMenuItemId === 0 ?
@@ -45,8 +47,8 @@ decorateMainView: MainView => (
                     <h1>Settings</h1>
             }
         </MainView>
-    )
-),
+    );
+}
 ```
 
 In this example we use `h1` tags, but in practice you would of course create React components for search and settings, and render those instead.
@@ -63,30 +65,31 @@ const views = [
     { id: 1, text: 'Settings', iconClass: 'icon-wrench' },
 ];
 
-function renderView(viewId) {
-    const view = views[viewId];
-    return view ? <h1>{view.text}</h1> : <h1>Welcome</h1>;
+export function decorateNavMenu(NavMenu) {
+    return props => (
+        <NavMenu
+            {...props}
+            menuItems={views}
+        />
+    );
 }
 
-export default {
-    decorateNavMenu: NavMenu => (
-        props => (
-            <NavMenu
-                {...props}
-                menuItems={views}
-            />
-        )
-    ),
-    mapMainViewState: (state, props) => ({
+export function mapMainViewState(state, props) {
+    return {
         ...props,
         selectedMenuItemId: state.core.navMenu.selectedItemId,
-    }),
-    decorateMainView: MainView => (
-        props => (
+    };
+}
+
+export function decorateMainView(MainView) {
+    return props => {
+        const view = views[props.selectedMenuItemId];
+        const title = view ? view.text : 'Welcome';
+        return (
             <MainView>
-                { renderView(props.selectedMenuItemId) }
+                <h1>{ title }</h1>
             </MainView>
-        )
-    ),
-};
+        );
+    };
+}
 ```
