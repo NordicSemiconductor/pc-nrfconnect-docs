@@ -154,7 +154,7 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
         <code>reduceApp</code><br />
       </td>
       <td>
-        <p>Invoked when an action is dispatched. This is where the app can keep its own custom state. Multiple reducers may be nested below this by using `combineReducers` from react-redux.</p>
+        <p>Invoked when an action is dispatched. This is where the app can keep its own custom state. See [[examples|API reference#adding information to state]].</p>
         <p>Parameters:</p>
         <table>
           <tbody>
@@ -326,3 +326,51 @@ export function middleware(store) {
 ```
 
 Note that the final line of the middleware calls `next(action)`. This passes the action on to the next middleware in the chain, and finally the action is received by the reducers. Also note that we can dispatch new actions from middleware using `store.dispatch()`, and there is also a `store.getState()` function for reading information from state.
+
+### Adding information to state
+
+The app can maintain its own state under `state.app` by implementing the `reduceApp` method. This can either be a single reducer function, or multiple nested reducers. All actions that are dispatched will be received by the reducer(s).
+
+#### Single reducer function
+
+```
+const initialState = {
+    clickCount: 0,
+};
+
+export function reduceApp(state = initialState, action) {
+    switch (action.type) {
+        case 'SIDE_PANEL_BUTTON_CLICKED':
+            return {
+                ...state,
+                clickCount: state.clickCount + 1,
+            };
+        default:
+            return state;
+    }
+}
+```
+
+#### Multiple reducer functions
+
+Multiple reducer functions can be added using the Redux [combineReducers](http://redux.js.org/docs/api/combineReducers.html) function:
+
+```
+import { combineReducers } from 'redux';
+
+const initialFooState = {};
+const initialBarState = {};
+
+function foo(state = initialFooState, action) {
+    /* reducer implementation */
+}
+
+function bar(state = initialBarState, action) {
+    /* reducer implementation */
+}
+
+export const reduceApp = combineReducers({
+    foo,
+    bar,
+});
+```
