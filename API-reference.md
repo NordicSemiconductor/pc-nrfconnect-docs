@@ -95,7 +95,7 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
         <code>mapSidePanelDispatch</code><br />
       </td>
       <td>
-        <p>Allows overriding props that are passed to the components. Receives <code>dispatch</code> and the original <code>props</code>, and must return a new map of props.</p>
+        <p>Allows overriding props that are passed to the components. Receives <code>dispatch</code> and the original <code>props</code>, and must return a new map of props. See [[examples|API reference#dispatching actions]].</p>
         <p>Parameters:</p>
         <table>
           <tbody>
@@ -228,6 +228,39 @@ export function decorateNavMenu() {
 }
 ```
 
+### Dispatching actions
+
+When the user clicks a button or types some text inside a component, the app will typically want to change state. This is done by dispatching actions. The actions are then processed by the reducers, which is responsible for changing state.
+
+To dispatch an action when a button is clicked, the app should create a function that dispatches the action, and pass that function to the component as a prop. Apps can do this by implementing the `map<ComponentName>Dispatch` methods.
+
+For example, if an action should be dispatched when clicking a button in the `SidePanel`, the app can implement `mapSidePanelDispatch`:
+
+```
+export function mapSidePanelDispatch(dispatch, props) {
+    return {
+        ...props,
+        onButtonClicked: () => dispatch({
+            type: 'SIDE_PANEL_BUTTON_CLICKED'
+        }),
+    };
+}
+```
+
+The `SidePanel` can then assign this function to the button's `onClick` property:
+
+```
+export function decorateSidePanel(SidePanel) {
+    return props => (
+        <SidePanel>
+            <button onClick={props.onButtonClicked}>Button</button>
+        </SidePanel>
+    );
+}
+```
+
+Instead of passing an action object to `dispatch`, the app can also pass a function. This is useful when the app needs to perform an asynchronous operation. Refer to the [redux-thunk](https://github.com/gaearon/redux-thunk) documentation to see how this is done.
+
 ### Passing information from state to components
 
 The nRF Connect core keeps its state under `state.core`. Refer to the [coreReducer](https://github.com/NordicSemiconductor/pc-nrfconnect-core/blob/master/lib/windows/app/reducers/coreReducer.js) to see what information may be found there. The app can maintain its own state under `state.app` by implementing the `reduceApp` method.
@@ -240,7 +273,7 @@ export function mapMainViewState(state, props) {
         ...props,
         selectedMenuItemId: state.core.navMenu.selectedItemId,
     };
-}),
+}
 ```
 
 The `MainView` will now receive a `selectedMenuItemId` prop:
