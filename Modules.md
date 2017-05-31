@@ -10,6 +10,14 @@ nRF Connect includes several modules that apps can import:
     </tr>
     <tr>
       <td>
+        <code>electron</code>
+      </td>
+      <td>
+        <p>The electron API for the <i>renderer</i> process. Refer to the <a href="https://electron.atom.io/docs/api/">electron documentation</a>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <code>nrfconnect/core</code>
       </td>
       <td>
@@ -40,18 +48,34 @@ nRF Connect includes several modules that apps can import:
     </tr>
     <tr>
       <td>
-        <code>electron</code>
-      </td>
-      <td>
-        <p>The electron API for the <i>renderer</i> process. Refer to the <a href="https://electron.atom.io/docs/api/">electron documentation</a>.</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <code>pc-ble-driver-js</code>
       </td>
       <td>
         <p>Bluetooth® low energy driver. Refer to the <a href="https://github.com/NordicSemiconductor/pc-ble-driver-js">pc-ble-driver-js repository</a> on Github.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>react</code>
+      </td>
+      <td>
+        <p>The React library instance used by nRF Connect. Refer to the <a href="https://facebook.github.io/react/">React documentation</a>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>react-dom</code>
+      </td>
+      <td>
+        <p>The ReactDOM library instance used by nRF Connect. Refer to the <a href="https://facebook.github.io/react/docs/react-dom.html">ReactDOM documentation</a>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>react-redux</code>
+      </td>
+      <td>
+        <p>The react-redux library instance, containing React bindings for Redux. Refer to the <a href="https://github.com/reactjs/react-redux">react-redux documentation</a>.</p>
       </td>
     </tr>
     <tr>
