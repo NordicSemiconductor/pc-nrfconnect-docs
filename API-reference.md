@@ -124,7 +124,7 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
         <code>mapSidePanelState</code><br />
       </td>
       <td>
-        <p>Allows overriding props that are passed to the components. Receives the <code>state</code> object and the original <code>props</code>, and must return a new map of props.</p>
+        <p>Allows overriding props that are passed to the components. Receives the <code>state</code> object and the original <code>props</code>, and must return a new map of props. See [[examples|API reference#passing information from state to components]].</p>
         <p>Parameters:</p>
         <table>
           <tbody>
@@ -212,7 +212,6 @@ decorateNavMenu: NavMenu => (
             {...props}
             menuItems={[
                 { id: 0, text: 'Search', iconClass: 'icon-search' },
-                { id: 1, text: 'Settings', iconClass: 'icon-wrench' },
             ]}
         />
     )
@@ -224,5 +223,30 @@ decorateNavMenu: NavMenu => (
 ```
 decorateNavMenu: () => (
     () => <div />
+),
+```
+
+### Passing information from state to components
+
+The nRF Connect core keeps its state under `state.core`. Refer to the [coreReducer](https://github.com/NordicSemiconductor/pc-nrfconnect-core/blob/master/lib/windows/app/reducers/coreReducer.js) to see what information may be found there. The app can maintain its own state under `state.app` by implementing the `reduceApp` method.
+
+For example, the selected navigation menu item is kept in `state.core.navMenu.selectedItemId`. To pass it to the `MainView`, implement `mapMainViewState` as shown below:
+
+```
+mapMainViewState: (state, props) => ({
+    ...props,
+    selectedMenuItemId: state.core.navMenu.selectedItemId,
+}),
+```
+
+The `MainView` will now receive a `selectedMenuItemId` prop:
+
+```
+decorateMainView: MainView => (
+    props => (
+        <MainView>
+            <p>Selected menu item is { props.selectedMenuItemId }</p>
+        </MainView>
+    )
 ),
 ```
