@@ -1,4 +1,4 @@
-## App development
+## nRF Connect app development
 
 ### Basics
 
