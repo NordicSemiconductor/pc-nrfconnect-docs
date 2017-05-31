@@ -66,7 +66,7 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
         <code>decorateSidePanel</code>
       </td>
       <td>
-        <p>Invoked with the component that is to be decorated. Must return a Higher-Order Component (HOC). See [[examples|API reference#Decoration]].</p>
+        <p>Invoked with the component that is to be decorated. Must return a Higher-Order Component (HOC). See [[examples|API reference#decoration]].</p>
         <p>Parameters:</p>
         <table>
           <tbody>
