@@ -66,7 +66,7 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
         <code>decorateSidePanel</code>
       </td>
       <td>
-        <p>Invoked with the component that is to be decorated. Must return a Higher-Order Component (HOC). See [[examples|API reference#decoration]].</p>
+        <p>Invoked with the component that is to be decorated. Must return a Higher-Order Component (HOC). See [[examples|API reference#component decoration]].</p>
         <p>Parameters:</p>
         <table>
           <tbody>
@@ -175,7 +175,9 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
 
 ## Example usage
 
-### Decoration
+### Component decoration
+
+Decoration allows the app to render custom components or override props that are passed to components. Also, if a component is not relevant for the app, it can simply choose to not render it.
 
 #### Rendering a custom component
 
@@ -189,7 +191,7 @@ decorateNavMenu: () => (
 ),
 ```
 
-The same thing can also be done using a class component:
+The same thing can be done using a class component, but it is a little more verbose:
 
 ```
 decorateNavMenu: () => (
