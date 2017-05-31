@@ -172,3 +172,57 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
     </tr>
   </tbody>
 </table>
+
+## Example usage
+
+### Decoration
+
+#### Rendering a custom component
+
+Using a [functional component](https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components):
+
+```
+decorateNavMenu: () => (
+    props => (
+        <CustomNavMenu {...props} />
+    )
+),
+```
+
+The same thing can also be done using a class component:
+
+```
+decorateNavMenu: () => (
+    class extends React.Component {
+        render() {
+            return (
+                <CustomNavMenu {...this.props} />
+            );
+        }
+    }
+),
+```
+
+#### Overriding props that are passed to components
+
+```
+decorateNavMenu: NavMenu => (
+    props => (
+        <NavMenu
+            {...props}
+            menuItems={[
+                { id: 0, text: 'Search', iconClass: 'icon-search' },
+                { id: 1, text: 'Settings', iconClass: 'icon-wrench' },
+            ]}
+        />
+    )
+),
+```
+
+#### Removing a component
+
+```
+decorateNavMenu: () => (
+    () => <div />
+),
+```
