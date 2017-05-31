@@ -292,8 +292,6 @@ export function decorateMainView(MainView) {
 
 By implementing a [Redux middleware](http://redux.js.org/docs/advanced/Middleware.html), apps can intercept or act upon actions before they are received by the reducers. This is useful for changing or expanding on the default nRF Connect behavior. Refer to the [core actions](https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/actions) to see the list of actions that may pass through the middleware.
 
-#### Perform operation when action has been dispatched
-
 A common scenario is that the app should open serial port when a port has been selected, and close the port when is has been deselected. This can be done using middleware:
 
 ```
