@@ -230,7 +230,7 @@ export function decorateNavMenu() {
 
 ### Dispatching actions
 
-When the user clicks a button or types some text inside a component, the app will typically want to change state. This is done by dispatching actions. The actions are then processed by the reducers, which is responsible for changing state.
+When the user clicks a button or types some text inside a component, the app will typically want to update information in state. This is done by dispatching actions. The actions are then processed by the reducers, which is responsible for setting information in state.
 
 To dispatch an action when a button is clicked, the app should create a function that dispatches the action, and pass that function to the component as a prop. Apps can do this by implementing the `map<ComponentName>Dispatch` methods.
 
