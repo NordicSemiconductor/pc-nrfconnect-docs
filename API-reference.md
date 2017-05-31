@@ -184,48 +184,48 @@ Decoration allows the app to render custom components or override props that are
 Using a [functional component](https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components):
 
 ```
-decorateNavMenu: () => (
-    props => (
+export function decorateNavMenu() {
+    return props => (
         <CustomNavMenu {...props} />
-    )
-),
+    );
+}
 ```
 
 The same thing can be done using a class component, but it is a little more verbose:
 
 ```
-decorateNavMenu: () => (
-    class extends React.Component {
+export function decorateNavMenu() {
+    return class extends React.Component {
         render() {
             return (
-                <CustomNavMenu {...this.props} />
+                <CustomNavMenu {...props} />
             );
         }
-    }
-),
+    };
+}
 ```
 
 #### Overriding props that are passed to components
 
 ```
-decorateNavMenu: NavMenu => (
-    props => (
+export function decorateNavMenu(NavMenu) {
+    return props => (
         <NavMenu
             {...props}
             menuItems={[
                 { id: 0, text: 'Search', iconClass: 'icon-search' },
             ]}
         />
-    )
-),
+    );
+}
 ```
 
 #### Removing a component
 
 ```
-decorateNavMenu: () => (
-    () => <div />
-),
+export function decorateNavMenu() {
+    return () => <div />;
+}
 ```
 
 ### Passing information from state to components
@@ -235,20 +235,22 @@ The nRF Connect core keeps its state under `state.core`. Refer to the [coreReduc
 For example, the selected navigation menu item is kept in `state.core.navMenu.selectedItemId`. To pass it to the `MainView`, implement `mapMainViewState` as shown below:
 
 ```
-mapMainViewState: (state, props) => ({
-    ...props,
-    selectedMenuItemId: state.core.navMenu.selectedItemId,
+export function mapMainViewState(state, props) {
+    return {
+        ...props,
+        selectedMenuItemId: state.core.navMenu.selectedItemId,
+    };
 }),
 ```
 
 The `MainView` will now receive a `selectedMenuItemId` prop:
 
 ```
-decorateMainView: MainView => (
-    props => (
+export function decorateMainView(MainView) {
+    return props => (
         <MainView>
             <p>Selected menu item is { props.selectedMenuItemId }</p>
         </MainView>
-    )
-),
+    );
+}
 ```
