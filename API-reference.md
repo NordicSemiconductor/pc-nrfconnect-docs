@@ -67,6 +67,7 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
       </td>
       <td>
         <p>Invoked with the component that is to be decorated. Must return a Higher-Order Component (HOC).</p>
+        <p>Parameters:</p>
         <table>
           <tbody>
             <tr>
@@ -95,6 +96,7 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
       </td>
       <td>
         <p>Allows overriding props that are passed to the components. Receives <code>dispatch</code> and the original <code>props</code>, and must return a new map of props.</p>
+        <p>Parameters:</p>
         <table>
           <tbody>
             <tr>
@@ -123,6 +125,7 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
       </td>
       <td>
         <p>Allows overriding props that are passed to the components. Receives the <code>state</code> object and the original <code>props</code>, and must return a new map of props.</p>
+        <p>Parameters:</p>
         <table>
           <tbody>
             <tr>
@@ -152,6 +155,7 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
       </td>
       <td>
         <p>Invoked when an action is dispatched. This is where the app can keep its own custom state. Multiple reducers may be nested below this by using `combineReducers` from react-redux.</p>
+        <p>Parameters:</p>
         <table>
           <tbody>
             <tr>
