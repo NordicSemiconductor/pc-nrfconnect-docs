@@ -1,3 +1,18 @@
+## File system location
+
+nRF Connect stores apps in the following directory:
+
+* Linux/macOS: `$HOME/.nrfconnect-apps`
+* Windows: `%USERPROFILE%\.nrfconnect-apps`
+
+### Official apps
+
+When adding an app through the *Add/remove apps* UI, the app is installed and added as a dependency in `.nrfconnect-apps/package.json`. This allows nRF Connect to keep track of installed apps and available upgrades just by using npm.
+
+### Local apps
+
+Apps that are unofficial or in development are retrieved from the `.nrfconnect-apps/local` directory. Adding an app here will make it appear in the nRF Connect launcher, so that you can test it.
+
 ## Properties in package.json
 
 The following package.json properties should be configured by nRF Connect apps:
