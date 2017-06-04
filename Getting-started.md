@@ -2,7 +2,7 @@
 
 ### Recommended knowledge
 
-nRF Connect is based on [Electron](https://electron.atom.io/), [React](https://facebook.github.io/react/), and [Redux](http://redux.js.org/). Some familiarity with React and Redux is recommended in order to create apps. You should at least understand concepts like JSX, props, actions, reducers, and state. Also, familiarity with [ECMAScript 2015](https://babeljs.io/learn-es2015/) syntax such as arrow functions, modules, const/let, and template strings is recommended.
+nRF Connect is based on [Electron](https://electron.atom.io/), [React](https://facebook.github.io/react/), and [Redux](http://redux.js.org/). Some familiarity with React and Redux is recommended in order to create apps. You should at least understand concepts like JSX, props, actions, reducers, and immutable state. Also, familiarity with [ECMAScript 2015](https://babeljs.io/learn-es2015/) syntax such as arrow functions, modules, const/let, and template strings is recommended.
 
 ### Install nRF Connect
 
