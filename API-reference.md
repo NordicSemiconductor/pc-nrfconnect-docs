@@ -310,7 +310,6 @@ export function middleware(store) {
             port = new SerialPort(action.port.comName, options, err => {
                 if (err) {
                     logger.error(`Failed to open port: ${err.message}`);
-                    store.dispatch({ type: 'SERIAL_PORT_DESELECTED' });
                 } else {
                     logger.info('Port is open');
                 }
