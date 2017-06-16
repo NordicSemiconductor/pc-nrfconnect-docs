@@ -62,7 +62,6 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
         <code>decorateNavBar</code><br />
         <code>decorateNavMenu</code><br />
         <code>decorateSerialPortSelector</code><br />
-        <code>decorateSerialPortSelectorItem</code><br />
         <code>decorateSidePanel</code>
       </td>
       <td>
