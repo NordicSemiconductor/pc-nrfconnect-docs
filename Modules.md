@@ -40,18 +40,18 @@ nRF Connect includes several modules that apps can import:
     </tr>
     <tr>
       <td>
-        <code>nrfconnect/programming</code>
+        <code>pc-ble-driver-js</code>
       </td>
       <td>
-        <p>Programming operations. Refer to the <a href="https://github.com/NordicSemiconductor/pc-nrfconnect-core/blob/master/lib/api/programming/index.js">programming API source code</a>.</p>
+        <p>Bluetooth® low energy driver for Nordic Semiconductor's nRF5x SoCs. Refer to the <a href="https://github.com/NordicSemiconductor/pc-ble-driver-js">pc-ble-driver-js repository</a> on Github.</p>
       </td>
     </tr>
     <tr>
       <td>
-        <code>pc-ble-driver-js</code>
+        <code>pc-nrfjprog-js</code>
       </td>
       <td>
-        <p>Bluetooth® low energy driver. Refer to the <a href="https://github.com/NordicSemiconductor/pc-ble-driver-js">pc-ble-driver-js repository</a> on Github.</p>
+        <p>Library for programming/flashing Nordic Semiconductor's nRF5x SoCs. Refer to the <a href="https://github.com/NordicSemiconductor/pc-nrfjprog-js">pc-nrfjprog-js repository</a> on Github.</p>
       </td>
     </tr>
     <tr>
