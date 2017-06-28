@@ -180,6 +180,8 @@ Decoration allows the app to render custom components or override props that are
 
 #### Rendering a custom component
 
+Components can be decorated by implementing the `decorate<ComponentName>` methods. E.g. to render a custom navigation menu, the `decorateNavMenu` method can be implemented.
+
 Using a [functional component](https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components):
 
 ```
