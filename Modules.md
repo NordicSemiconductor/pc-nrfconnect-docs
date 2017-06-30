@@ -98,10 +98,10 @@ import SerialPort from 'serialport';
 import { logger } from 'nrfconnect/core';
 
 const port = new SerialPort('/dev/ttyACM0', err => {
-  if (err) {
-    logger.error(err.message);
-  } else {
-    logger.info('Port is open');
-  }
+    if (err) {
+        logger.error(err.message);
+    } else {
+        logger.info('Port is open');
+    }
 });
 ```
