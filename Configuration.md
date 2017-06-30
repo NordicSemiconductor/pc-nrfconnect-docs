@@ -63,6 +63,13 @@ import core from 'nrfconnect/core';
 __webpack_public_path__ = path.join(core.getAppDir(), 'dist/');
 ```
 
+```
+// index.jsx:
+
+import './setup';
+...
+```
+
 When this is configured, React components can import and render images, e.g:
 
 ```
