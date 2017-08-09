@@ -7,7 +7,7 @@ nRF Connect stores apps in the following directory:
 
 ### Official apps
 
-When adding an app through the *Add/remove apps* UI, the app is installed and added as a dependency in `.nrfconnect-apps/package.json`. This allows nRF Connect to keep track of installed apps and available upgrades just by using npm.
+Official apps are published to the npm registry. When adding an app through the *Add/remove apps* UI, the app tarball is downloaded from the npm registry and extracted to `.nrfconnect-apps/node_modules`.
 
 ### Local apps
 
@@ -36,11 +36,11 @@ The icon is displayed at 40x40 pixels in the nRF Connect launcher, so make sure 
 
 ## Dependencies
 
-Usually, apps will depend on other modules from the npm registry. Dependencies can be specified in the app's package.json file. 
+Usually, apps will depend on other modules from the npm registry. Dependencies can be specified in the app's package.json file.
 
-When using webpack, we recommended using `devDependencies` instead of `dependencies`. This will keep the app's size to a minimum. The `dependencies` are installed when the user installs the app in nRF Connect, while `devDependencies` are only installed during development. With webpack, code from all dependencies is bundled when building the app, so the dependencies should not be needed anymore after the app has been built.
+As a general rule, apps should use `devDependencies` instead of `dependencies` when possible. This will keep the app's size to a minimum. At build time, webpack will bundle all the code that the app needs to run, so the dependencies are normally only needed at build time.
 
-Some modules may not be possible to bundle with webpack. This could be native modules or modules that use some special syntax that webpack does not support. Those modules need to be added to `dependencies` instead of `devDependencies`.
+Some modules may not be possible to bundle with webpack. This could be native modules or modules that use some special syntax that webpack does not support. In this case, the module should be added to `dependencies` instead of `devDependencies`, and also added to `bundledDependencies` so that it is included in the tarball that is published to npm.
 
 ## Webpack
 
