@@ -202,7 +202,7 @@ export function decorateNavMenu() {
     return class extends React.Component {
         render() {
             return (
-                <CustomNavMenu {...props} />
+                <CustomNavMenu {...this.props} />
             );
         }
     };
