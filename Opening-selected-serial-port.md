@@ -55,7 +55,7 @@ function middleware(store) {
 }
 ```
 
-## Open port with the serialport library
+## Opening port with the serialport library
 
 Now that we know which actions to use and how to use middleware, we can implement opening and closing the selected serial port. We listen for the `SERIAL_PORT_SELECTED` and `SERIAL_PORT_DESELECTED` action types, pull out the `comName` from the action, and open/close the port with the serialport library.
 
