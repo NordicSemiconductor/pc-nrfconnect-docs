@@ -1,3 +1,6 @@
+The API for nRF Connect apps is inspired by the extension API used by the [[Hyper™ terminal|https://hyper.is]].
+nRF Connect comes with a skeleton that has standard UI components for listing serial ports, navigation menus, logging, etc. Apps can decorate the standard components, create new components, and use [[built-in libraries|Modules]] in order to create end-user tools.
+
 nRF Connect apps are universal Node.js modules that exposes one or more of the following methods:
 
 <table>
