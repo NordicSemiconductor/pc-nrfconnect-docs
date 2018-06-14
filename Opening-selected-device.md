@@ -1,32 +1,43 @@
 ## Introduction
 
-By default, the serial port selector detects and displays available ports. It is up to the different apps to implement what should happen when selecting a port. Typically, you would want to open the port when it is selected - either using the serialport library or pc-ble-driver-js. This example shows how to open the selected port using the serialport library.
+The device selector detects and displays available devices based on the app's `config.selectorTraits` configuration. It is up to the different apps to implement what should happen when selecting a device. Typically, you would want to open the device when it is selected - using f.ex. the serialport library or pc-ble-driver-js. This example shows how to open the selected device using the serialport library.
 
-## Serial port actions
+## Device actions
 
 First, create a new app project as described in the [[getting started]] guide and launch the app from nRF Connect. During development it is often useful to open [[Chrome developer tools|https://developer.chrome.com/devtools]] by pressing Ctrl+Shift+I (Windows/Linux) or Cmd+Alt+I (macOS). All actions that are dispatched at runtime are logged to the developer tools console, so that you can see what is happening under the hood.
 
-Now, click the serial port selector and select a port. In the console you will see several actions appearing. One of these is `SERIAL_PORT_SELECTED`. If you expand it, you will see something like this:
+Verify that the app has the following `config.selectorTraits`, which will show devices with a serial port in the device selector:
+
+```
+export const config = {
+    selectorTraits: {
+        serialport: true,
+    },
+};
+```
+
+Now, click the device selector and select a device. In the console you will see several actions appearing. One of these is `DEVICE_SELECTED`. If you expand it, you will see something like this:
 
 ```
 action
   Object
-    port: Record
-      _map: Map
+    device: Object
+      serialNumber: 000680551615,
+      serialport: Object
         comName: "/dev/ttyACM0",
         manufacturer: "SEGGER",
-        productId: "0x0105",
-        serialNumber: 680551615,
-        vendorId: "0x1366"
-    type: "SERIAL_PORT_SELECTED"
+        productId: "0105",
+        serialNumber: 000680551615,
+        vendorId: "1366"
+    type: "DEVICE_SELECTED"
 ```
 
-Similarly, if you close the serial port, you will see the the `SERIAL_PORT_DESELECTED` action appearing in the console:
+Similarly, if you close the device, you will see the the `DEVICE_DESELECTED` action appearing in the console:
 
 ```
 action
   Object
-    type: "SERIAL_PORT_DESELECTED"
+    type: "DEVICE_DESELECTED"
 ```
 
 Apps can listen to actions and implement custom behavior when a certain action is dispatched. Now we know which actions to listen to, plus the information that can be pulled out from the actions. To see all actions that are available, see [[lib/windows/app/actions|https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/actions]].
@@ -57,7 +68,7 @@ function middleware(store) {
 
 ## Opening port with the serialport library
 
-Now that we know which actions to use and how to use middleware, we can implement opening and closing the selected serial port. We listen for the `SERIAL_PORT_SELECTED` and `SERIAL_PORT_DESELECTED` action types, pull out the `comName` from the action, and open/close the port with the serialport library.
+Now that we know which actions to use and how to use middleware, we can implement opening and closing the serial port of the selected device. We listen for the `DEVICE_SELECTED` and `DEVICE_DESELECTED` action types, pull out the `comName` from the action, and open/close the port with the serialport library.
 
 A full example of how to do this in the `index.jsx` file of the app can be seen below. Here we are also logging the status out to the log viewer.
 
@@ -71,17 +82,24 @@ const options = {
 
 let port;
 
+export const config = {
+    selectorTraits: {
+        serialport: true,
+    },
+};
+
 export function middleware(store) {
     return next => action => {
-        if (action.type === 'SERIAL_PORT_SELECTED') {
-            port = new SerialPort(action.port.comName, options, err => {
+        if (action.type === 'DEVICE_SELECTED') {
+            const device = action.device;
+            port = new SerialPort(device.serialport.comName, options, err => {
                 if (err) {
                     logger.error(`Failed to open port: ${err.message}`);
                 } else {
                     logger.info('Port is open');
                 }
             });
-        } else if (action.type === 'SERIAL_PORT_DESELECTED') {
+        } else if (action.type === 'DEVICE_DESELECTED') {
             port.close(() => {
                 logger.info('Port is closed');
             });
