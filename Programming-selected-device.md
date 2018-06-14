@@ -2,7 +2,7 @@ _Note: This functionality was introduced in nRF Connect >=v2.4_
 
 ## Introduction
 
-In the [[opening selected device]] example we described how to open a device's serial port the device is selected. This works fine when we do not require any setup of the device before opening it. However, in many cases apps require a specific firmware to be programmed on the device before it can be opened. This example describes how to set up (program) a device using the built-in device setup feature in nRF Connect.
+In the [[opening selected device]] example we described how to open a device's serial port when the device is selected. This works fine when we do not require any setup of the device before opening it. However, in many cases apps require a specific firmware to be programmed on the device before it can be opened. This example describes how to set up (program) a device using the built-in device setup feature in nRF Connect.
 
 ## Configuration
 
