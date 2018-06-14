@@ -1,3 +1,5 @@
+_Note: This example is compatible with nRF Connect >=v2.4_
+
 ## Introduction
 
 The device selector detects and displays available devices based on the app's `config.selectorTraits` configuration. It is up to the different apps to implement what should happen when selecting a device. Typically, you would want to open the device when it is selected - using f.ex. the serialport library or pc-ble-driver-js. This example shows how to open the selected device using the serialport library.
