@@ -1,7 +1,42 @@
 The API for nRF Connect apps is inspired by the extension API used by the [[Hyper™ terminal|https://hyper.is]].
 nRF Connect comes with a skeleton that has standard UI components for listing serial ports, navigation menus, logging, etc. Apps can decorate the standard components, create new components, and use [[built-in libraries|Modules]] in order to create end-user tools.
 
-nRF Connect apps are universal Node.js modules that exposes one or more of the following methods:
+nRF Connect apps are universal Node.js modules that export one or more of the properties or methods below. See the [pc-nrfconnect-boilerplate](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate) for a complete example.
+
+## Properties
+
+<table>
+  <tbody>
+    <tr>
+      <th>Property</th>
+      <th>Description and sub-properties</th>
+    </tr>
+    <tr>
+      <td>
+        <code>config</code>
+        <p><sup>(&gt;=2.4)</p>
+      </td>
+      <td>
+        <p>Configures which device types to show in the device selector, and how they should be set up (programmed) when selected.</p>
+        <p>Sub-properties:</p>
+        <table>
+          <tbody>
+            <tr>
+              <td><code>selectorTraits</code></td>
+              <td>Configures which device types to show in the device selector. This should be an object on the form <code>{ jlink: true, serialport: true, ... }</code>. The format is described in the <a href="https://github.com/NordicSemiconductor/nrf-device-lister-js">nrf-device-lister-js</a> documentation.</td>
+            </tr>
+            <tr>
+              <td><code>deviceSetup</code></td>
+              <td>Configures which firmware to program when a device is selected in the device selector. This should be an object on the form <code>{ dfu: { ... }, jprog: { ... } }</code> The format is described in the <a href="https://github.com/NordicSemiconductor/nrf-device-setup-js">nrf-device-setup-js</a> documentation.</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Methods
 
 <table>
   <tbody>
@@ -53,8 +88,8 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
     </tr>
     <tr>
       <td>
-        <code>decorateErrorDialog</code><br />
-        <code>decorateFirmwareDialog</code><br />
+        <code>decorateDeviceSelector</code><sub>&nbsp;(>=2.4)</sub><br />
+        <code><del>decorateFirmwareDialog</del></code><sub>&nbsp;(deprecated)</sub><br />
         <code>decorateLogo</code><br />
         <code>decorateLogEntry</code><br />
         <code>decorateLogHeader</code><br />
@@ -64,7 +99,7 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
         <code>decorateMainView</code><br />
         <code>decorateNavBar</code><br />
         <code>decorateNavMenu</code><br />
-        <code>decorateSerialPortSelector</code><br />
+        <code><del>decorateSerialPortSelector</del></code><sub>&nbsp;(deprecated)</sub><br />
         <code>decorateSidePanel</code>
       </td>
       <td>
@@ -76,24 +111,20 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
               <td><code>Component</code></td>
               <td>The component to decorate.</td>
             </tr>
-            <tr>
-              <td><code>env</code></td>
-              <td>The environment object. Currently only contains a reference to <code>React</code>.</td>
-            </tr>
           </tbody>
         </table>
       </td>
     </tr>
     <tr>
       <td>
-        <code>mapErrorDialogDispatch</code><br />
-        <code>mapFirmwareDialogDispatch</code><br />
+        <code>mapDeviceSelectorDispatch</code><sub>&nbsp;(>=2.4)</sub><br />
+        <code><del>mapFirmwareDialogDispatch</del></code><sub>&nbsp;(deprecated)</sub><br />
         <code>mapLogHeaderDispatch</code><br />
         <code>mapLogViewerDispatch</code><br />
         <code>mapMainMenuDispatch</code><br />
         <code>mapMainViewDispatch</code><br />
         <code>mapNavMenuDispatch</code><br />
-        <code>mapSerialPortSelectorDispatch</code><br />
+        <code><del>mapSerialPortSelectorDispatch</del></code><sub>&nbsp;(deprecated)</sub><br />
         <code>mapSidePanelDispatch</code><br />
       </td>
       <td>
@@ -115,14 +146,14 @@ nRF Connect apps are universal Node.js modules that exposes one or more of the f
     </tr>
     <tr>
       <td>
-        <code>mapErrorDialogState</code><br />
-        <code>mapFirmwareDialogState</code><br />
+        <code>mapDeviceSelectorState</code><sub>&nbsp;(>=2.4)</sub><br />
+        <code><del>mapFirmwareDialogState</del></code><sub>&nbsp;(deprecated)</sub><br />
         <code>mapLogHeaderState</code><br />
         <code>mapLogViewerState</code><br />
         <code>mapMainMenuState</code><br />
         <code>mapMainViewState</code><br />
         <code>mapNavMenuState</code><br />
-        <code>mapSerialPortSelectorState</code><br />
+        <code><del>mapSerialPortSelectorState</del></code><sub>&nbsp;(deprecated)</sub><br />
         <code>mapSidePanelState</code><br />
       </td>
       <td>
