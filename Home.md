@@ -18,6 +18,6 @@
 ### Examples
 
 * [[Adding navigation menu items]]
-* [[Opening selected serial port]]
-* [[Programming selected serial port]]
+* [[Opening selected device]]
+* [[Programming selected device]]
 * [[Using Bluetooth® low energy driver]]
