@@ -339,17 +339,25 @@ const options = {
 
 let port;
 
+// Show serial ports in the device selector
+export const config = {
+    selectorTraits: {
+        serialport: true,
+    },
+};
+
 export function middleware(store) {
     return next => action => {
-        if (action.type === 'SERIAL_PORT_SELECTED') {
-            port = new SerialPort(action.port.comName, options, err => {
+        if (action.type === 'DEVICE_SELECTED') {
+            const device = action.device;
+            port = new SerialPort(device.serialport.comName, options, err => {
                 if (err) {
                     logger.error(`Failed to open port: ${err.message}`);
                 } else {
                     logger.info('Port is open');
                 }
             });
-        } else if (action.type === 'SERIAL_PORT_DESELECTED') {
+        } else if (action.type === 'DEVICE_DESELECTED') {
             port.close(() => {
                 logger.info('Port is closed');
             });
