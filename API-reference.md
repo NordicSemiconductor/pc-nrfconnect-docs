@@ -13,8 +13,7 @@ nRF Connect apps are universal Node.js modules that export one or more of the pr
     </tr>
     <tr>
       <td>
-        <code>config</code>
-        <p><sup>(&gt;=2.4)</p>
+        <code>config</code><sub>&nbsp;(&gt;=2.4)</sub><br />
       </td>
       <td>
         <p>Configures which device types to show in the device selector, and how they should be set up (programmed) when selected.</p>
