@@ -86,6 +86,14 @@ nRF Connect includes several modules that apps can import:
         <p>Node.js serialport library. Refer to the <a href="https://github.com/EmergingTechnologyAdvisors/node-serialport">serialport documentation</a> on Github.</p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <code>usb</code>
+      </td>
+      <td>
+        <p>Node.js usb library. Refer to the <a href="https://github.com/tessel/node-usb">node-usb documentation</a> on Github.</p>
+      </td>
+    </tr>
   </tbody>
 </table>
 
