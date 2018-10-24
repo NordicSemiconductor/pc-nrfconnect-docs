@@ -62,6 +62,22 @@ nRF Connect includes several modules that apps can import:
         <p>The React library instance used by nRF Connect. Refer to the <a href="https://facebook.github.io/react/">React documentation</a>.</p>
       </td>
     </tr>
+<tr>
+      <td>
+        <code>nrf-device-setup</code>
+      </td>
+      <td>
+        <p>Library for setting up devices from Nordic Semiconductor. Refer to the <a href="https://github.com/NordicSemiconductor/nrf-device-setup-js">nrf-device-setup repository</a> on Github.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>react</code>
+      </td>
+      <td>
+        <p>The React library instance used by nRF Connect. Refer to the <a href="https://facebook.github.io/react/">React documentation</a>.</p>
+      </td>
+    </tr>
     <tr>
       <td>
         <code>react-dom</code>
@@ -88,10 +104,10 @@ nRF Connect includes several modules that apps can import:
     </tr>
     <tr>
       <td>
-        <code>usb</code>
+        <code>nrf-usb</code>
       </td>
       <td>
-        <p>Node.js usb library. Refer to the <a href="https://github.com/tessel/node-usb">node-usb documentation</a> on Github.</p>
+        <p>Forked Node.js usb library. Nothing has been changed but generating binaries. Refer to the <a href="https://github.com/NordicPlayground/node-usb">node-usb documentation</a> on Github.</p>
       </td>
     </tr>
   </tbody>
