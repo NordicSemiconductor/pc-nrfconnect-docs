@@ -29,7 +29,7 @@ Since *nRF Connect* expects local apps in
 
 make sure your repository is cloned or linked there.
 
-## Compiling
+### Compiling
 
 When *nRF Connect* have been installed, you are ready to start the compilation. Run the following command from the command line, standing in the root folder of the repository:
 
@@ -41,7 +41,7 @@ When the procedure has completed successfully you can run the application by run
 
 The built app can be loaded by *nRF Connect* launcher.
 
-## Testing
+### Testing
 
 Unit testing can be performed by running:
 
