@@ -18,4 +18,31 @@ Development tools required:
 
 ## Create an app project
 
-We recommend using tools like webpack, babel, eslint, and jest when creating apps. Fortunately, you do not need to configure these yourself. We have created an [nRF Connect boilerplate app](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate) that gives you what you need to get started. Follow the instructions in the boilerplate app README to create an empty app project.
+We recommend using tools like webpack, babel, eslint, and jest when creating apps. Fortunately, you do not need to configure these yourself. We have created an [nRF Connect boilerplate app](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate) that gives you what you need to get started. Follow the instructions in the boilerplate app README to create an empty app project. If you are already familiar with our apps, you could develop your own app based on any of our apps.
+
+### Clone repository
+
+Since *nRF Connect* expects local apps in
+
+* `$HOME/.nrfconnect-apps/local` (Linux/macOS) or 
+* `%USERPROFILE%/.nrfconnect-apps/local` (Windows) directory,
+
+make sure your repository is cloned or linked there.
+
+## Compiling
+
+When *nRF Connect* have been installed, you are ready to start the compilation. Run the following command from the command line, standing in the root folder of the repository:
+
+    npm install
+
+When the procedure has completed successfully you can run the application by running:
+
+    npm run dev
+
+The built app can be loaded by *nRF Connect* launcher.
+
+## Testing
+
+Unit testing can be performed by running:
+
+    npm test
