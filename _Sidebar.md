@@ -2,7 +2,6 @@
 
 * [[Getting started]]
 * [[Configuration]]
-* [[Create an app project]]
 
 ### API
 
