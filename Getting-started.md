@@ -12,7 +12,7 @@ Before you can create apps, you need to have nRF Connect up and running. Follow 
 
 Development tools required:
 
-* [Node.js](https://nodejs.org) (>=6.9)
+* [Node.js](https://nodejs.org)
 * [Git](https://git-scm.com/downloads)
 * An editor with good JavaScript support (e.g. VS Code, Atom, WebStorm)
 
