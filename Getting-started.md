@@ -27,7 +27,11 @@ Since *nRF Connect* expects local apps in
 * `$HOME/.nrfconnect-apps/local` (Linux/macOS) or 
 * `%USERPROFILE%/.nrfconnect-apps/local` (Windows) directory,
 
-make sure your repository is cloned or linked there.
+make sure your repository is cloned or linked there, e.g.
+
+```
+git clone https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate.git
+```
 
 ### Compiling
 
