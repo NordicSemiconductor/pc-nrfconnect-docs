@@ -1,0 +1,3 @@
+## Create an app project
+
+We recommend using tools like webpack, babel, eslint, and jest when creating apps. Fortunately, you do not need to configure these yourself. We have created an [nRF Connect boilerplate app](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate) that gives you what you need to get started. Follow the instructions in the boilerplate app README to create an empty app project.
