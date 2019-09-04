@@ -4,6 +4,7 @@
 
 * [[Getting started]]
 * [[Configuration]]
+* [[Contributing]]
 
 ### API
 
