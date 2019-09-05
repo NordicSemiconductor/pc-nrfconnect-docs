@@ -1,0 +1,1 @@
+* [nRF Connect boilerplate app](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate)
