@@ -4,7 +4,9 @@
 
 * [[Getting started]]
 * [[Configuration]]
+* [[Supported apps]]
 * [[Contributing]]
+
 
 ### API
 
