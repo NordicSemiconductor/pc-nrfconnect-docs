@@ -2,13 +2,24 @@ _Note: This example is compatible with nRF Connect >=v2.4_
 
 ## Introduction
 
-The device selector detects and displays available devices based on the app's `config.selectorTraits` configuration. It is up to the different apps to implement what should happen when selecting a device. Typically, you would want to open the device when it is selected - using f.ex. the serialport library or pc-ble-driver-js. This example shows how to open the selected device using the serialport library.
+The device selector detects and displays available devices based on the app's
+`config.selectorTraits` configuration. It is up to the different apps to
+implement what should happen when selecting a device. Typically, you would want
+to open the device when it is selected - using f.ex. the serialport library or
+pc-ble-driver-js. This example shows how to open the selected device using the
+serialport library.
 
 ## Device actions
 
-First, create a new app project as described in the [[getting started]] guide and launch the app from nRF Connect. During development it is often useful to open [[Chrome developer tools|https://developer.chrome.com/devtools]] by pressing Ctrl+Shift+I (Windows/Linux) or Cmd+Alt+I (macOS). All actions that are dispatched at runtime are logged to the developer tools console, so that you can see what is happening under the hood.
+First, create a new app project as described in the [[getting started]] guide
+and launch the app from nRF Connect. During development it is often useful to
+open [[Chrome developer tools|https://developer.chrome.com/devtools]] by
+pressing Ctrl+Shift+I (Windows/Linux) or Cmd+Alt+I (macOS). All actions that are
+dispatched at runtime are logged to the developer tools console, so that you can
+see what is happening under the hood.
 
-Verify that the app has the following `config.selectorTraits`, which will show devices with a serial port in the device selector:
+Verify that the app has the following `config.selectorTraits`, which will show
+devices with a serial port in the device selector:
 
 ```
 export const config = {
@@ -18,7 +29,9 @@ export const config = {
 };
 ```
 
-Now, click the device selector and select a device. In the console you will see several actions appearing. One of these is `DEVICE_SELECTED`. If you expand it, you will see something like this:
+Now, click the device selector and select a device. In the console you will see
+several actions appearing. One of these is `DEVICE_SELECTED`. If you expand it,
+you will see something like this:
 
 ```
 action
@@ -34,7 +47,8 @@ action
     type: "DEVICE_SELECTED"
 ```
 
-Similarly, if you close the device, you will see the the `DEVICE_DESELECTED` action appearing in the console:
+Similarly, if you close the device, you will see the the `DEVICE_DESELECTED`
+action appearing in the console:
 
 ```
 action
@@ -42,11 +56,21 @@ action
     type: "DEVICE_DESELECTED"
 ```
 
-Apps can listen to actions and implement custom behavior when a certain action is dispatched. Now we know which actions to listen to, plus the information that can be pulled out from the actions. To see all actions that are available, see [[lib/windows/app/actions|https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/actions]].
+Apps can listen to actions and implement custom behavior when a certain action
+is dispatched. Now we know which actions to listen to, plus the information that
+can be pulled out from the actions. To see all actions that are available, see
+[[lib/windows/app/actions|https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/actions]].
 
 ## Acting upon actions with middleware
 
-By implementing [[middleware|API-reference#intercepting-actions-with-middleware]], apps can intercept or act upon actions before they are received by the [[reducers|https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/reducers]]. Middleware may seem a bit odd at first, and you can read more about it in the [[Redux documentation|http://redux.js.org/docs/advanced/Middleware.html]]. However, you do not need to know all the details to use it. A middleware function looks like this:
+By implementing
+[[middleware|API-reference#intercepting-actions-with-middleware]], apps can
+intercept or act upon actions before they are received by the
+[[reducers|https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/reducers]].
+Middleware may seem a bit odd at first, and you can read more about it in the
+[[Redux documentation|http://redux.js.org/docs/advanced/Middleware.html]].
+However, you do not need to know all the details to use it. A middleware
+function looks like this:
 
 ```
 function middleware(store) {
@@ -70,9 +94,13 @@ function middleware(store) {
 
 ## Opening port with the serialport library
 
-Now that we know which actions to use and how to use middleware, we can implement opening and closing the serial port of the selected device. We listen for the `DEVICE_SELECTED` and `DEVICE_DESELECTED` action types, pull out the `comName` from the action, and open/close the port with the serialport library.
+Now that we know which actions to use and how to use middleware, we can
+implement opening and closing the serial port of the selected device. We listen
+for the `DEVICE_SELECTED` and `DEVICE_DESELECTED` action types, pull out the
+`comName` from the action, and open/close the port with the serialport library.
 
-A full example of how to do this in the `index.jsx` file of the app can be seen below. Here we are also logging the status out to the log viewer.
+A full example of how to do this in the `index.jsx` file of the app can be seen
+below. Here we are also logging the status out to the log viewer.
 
 ```
 import SerialPort from 'serialport';

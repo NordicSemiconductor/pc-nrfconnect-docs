@@ -1,7 +1,13 @@
-The API for nRF Connect apps is inspired by the extension API used by the [[Hyper™ terminal|https://hyper.is]].
-nRF Connect comes with a skeleton that has standard UI components for listing serial ports, navigation menus, logging, etc. Apps can decorate the standard components, create new components, and use [[built-in libraries|Modules]] in order to create end-user tools.
+The API for nRF Connect apps is inspired by the extension API used by the
+[[Hyper™ terminal|https://hyper.is]]. nRF Connect comes with a skeleton that has
+standard UI components for listing serial ports, navigation menus, logging, etc.
+Apps can decorate the standard components, create new components, and use
+[[built-in libraries|Modules]] in order to create end-user tools.
 
-nRF Connect apps are universal Node.js modules that export one or more of the properties or methods below. See the [pc-nrfconnect-boilerplate](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate) for a complete example.
+nRF Connect apps are universal Node.js modules that export one or more of the
+properties or methods below. See the
+[pc-nrfconnect-boilerplate](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate)
+for a complete example.
 
 ## Properties
 
@@ -209,13 +215,18 @@ nRF Connect apps are universal Node.js modules that export one or more of the pr
 
 ### Component decoration
 
-Decoration allows the app to render custom components or override props that are passed to components. Also, if a component is not relevant for the app, it can simply choose not to render it.
+Decoration allows the app to render custom components or override props that are
+passed to components. Also, if a component is not relevant for the app, it can
+simply choose not to render it.
 
 #### Rendering a custom component
 
-Components can be decorated by implementing the `decorate<ComponentName>` methods. E.g. to render a custom navigation menu, the `decorateNavMenu` method can be implemented.
+Components can be decorated by implementing the `decorate<ComponentName>`
+methods. E.g. to render a custom navigation menu, the `decorateNavMenu` method
+can be implemented.
 
-Using a [functional component](https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components):
+Using a
+[functional component](https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components):
 
 ```
 export function decorateNavMenu() {
@@ -225,7 +236,8 @@ export function decorateNavMenu() {
 }
 ```
 
-The same thing can be done using a class component, but it is a little more verbose:
+The same thing can be done using a class component, but it is a little more
+verbose:
 
 ```
 export function decorateNavMenu() {
@@ -264,11 +276,17 @@ export function decorateNavMenu() {
 
 ### Dispatching actions
 
-When the user clicks a button or types some text inside a component, the app will typically want to update information in state. This is done by dispatching actions. The actions are then processed by the reducers, which is responsible for setting information in state.
+When the user clicks a button or types some text inside a component, the app
+will typically want to update information in state. This is done by dispatching
+actions. The actions are then processed by the reducers, which is responsible
+for setting information in state.
 
-To dispatch an action when a button is clicked, the app should create a function that dispatches the action, and pass that function to the component as a prop. Apps can do this by implementing the `map<ComponentName>Dispatch` methods.
+To dispatch an action when a button is clicked, the app should create a function
+that dispatches the action, and pass that function to the component as a prop.
+Apps can do this by implementing the `map<ComponentName>Dispatch` methods.
 
-For example, if an action should be dispatched when clicking a button in the `SidePanel`, the app can implement `mapSidePanelDispatch`:
+For example, if an action should be dispatched when clicking a button in the
+`SidePanel`, the app can implement `mapSidePanelDispatch`:
 
 ```
 export function mapSidePanelDispatch(dispatch, props) {
@@ -281,7 +299,8 @@ export function mapSidePanelDispatch(dispatch, props) {
 }
 ```
 
-The `SidePanel` can then assign this function to the button's `onClick` property:
+The `SidePanel` can then assign this function to the button's `onClick`
+property:
 
 ```
 export function decorateSidePanel(SidePanel) {
@@ -293,13 +312,21 @@ export function decorateSidePanel(SidePanel) {
 }
 ```
 
-Instead of passing an action object to `dispatch`, the app can also pass a function. This is useful when the app needs to perform an asynchronous operation. Refer to the [redux-thunk](https://github.com/gaearon/redux-thunk) documentation to see how this is done.
+Instead of passing an action object to `dispatch`, the app can also pass a
+function. This is useful when the app needs to perform an asynchronous
+operation. Refer to the [redux-thunk](https://github.com/gaearon/redux-thunk)
+documentation to see how this is done.
 
 ### Passing information from state to components
 
-The nRF Connect core keeps its state under `state.core`. Refer to the [coreReducer](https://github.com/NordicSemiconductor/pc-nrfconnect-core/blob/master/lib/windows/app/reducers/coreReducer.js) to see what information may be found there. The app can maintain its own state under `state.app` by implementing the `reduceApp` method.
+The nRF Connect core keeps its state under `state.core`. Refer to the
+[coreReducer](https://github.com/NordicSemiconductor/pc-nrfconnect-core/blob/master/lib/windows/app/reducers/coreReducer.js)
+to see what information may be found there. The app can maintain its own state
+under `state.app` by implementing the `reduceApp` method.
 
-For example, the selected navigation menu item is kept in `state.core.navMenu.selectedItemId`. To pass it to the `MainView`, implement `mapMainViewState` as shown below:
+For example, the selected navigation menu item is kept in
+`state.core.navMenu.selectedItemId`. To pass it to the `MainView`, implement
+`mapMainViewState` as shown below:
 
 ```
 export function mapMainViewState(state, props) {
@@ -324,9 +351,17 @@ export function decorateMainView(MainView) {
 
 ### Intercepting actions with middleware
 
-By implementing a [Redux middleware](http://redux.js.org/docs/advanced/Middleware.html), apps can intercept or act upon actions before they are received by the reducers. This is useful for changing or expanding on the default nRF Connect behavior. Refer to the [core actions](https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/actions) to see the list of actions that may pass through the middleware.
+By implementing a
+[Redux middleware](http://redux.js.org/docs/advanced/Middleware.html), apps can
+intercept or act upon actions before they are received by the reducers. This is
+useful for changing or expanding on the default nRF Connect behavior. Refer to
+the
+[core actions](https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/actions)
+to see the list of actions that may pass through the middleware.
 
-A common scenario is that the app should open serial port when a port has been selected, and close the port when is has been deselected. This can be done using middleware:
+A common scenario is that the app should open serial port when a port has been
+selected, and close the port when is has been deselected. This can be done using
+middleware:
 
 ```
 import SerialPort from 'serialport';
@@ -366,11 +401,18 @@ export function middleware(store) {
 }
 ```
 
-Note that the final line of the middleware calls `next(action)`. This passes the action on to the next middleware in the chain, and finally the action is received by the reducers. Also note that we can dispatch new actions from middleware using `store.dispatch()`, and there is also a `store.getState()` function for reading information from state.
+Note that the final line of the middleware calls `next(action)`. This passes the
+action on to the next middleware in the chain, and finally the action is
+received by the reducers. Also note that we can dispatch new actions from
+middleware using `store.dispatch()`, and there is also a `store.getState()`
+function for reading information from state.
 
 ### Adding information to state
 
-The app can maintain its own state under `state.app` by implementing the `reduceApp` method. This can either be a single reducer function, or multiple nested reducers. All actions that are dispatched will be received by the reducer(s).
+The app can maintain its own state under `state.app` by implementing the
+`reduceApp` method. This can either be a single reducer function, or multiple
+nested reducers. All actions that are dispatched will be received by the
+reducer(s).
 
 #### Single reducer function
 
@@ -394,7 +436,8 @@ export function reduceApp(state = initialState, action) {
 
 #### Multiple reducer functions
 
-Multiple reducer functions can be added using the Redux [combineReducers](http://redux.js.org/docs/api/combineReducers.html) function:
+Multiple reducer functions can be added using the Redux
+[combineReducers](http://redux.js.org/docs/api/combineReducers.html) function:
 
 ```
 import { combineReducers } from 'redux';
