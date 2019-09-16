@@ -1,3 +1,6 @@
+---
+---
+
 ## Adding items
 
 The navigation menu is rendered by the `NavMenu` component. The component

@@ -1,3 +1,6 @@
+---
+---
+
 ## nRF Connect app development
 
 ### Basics

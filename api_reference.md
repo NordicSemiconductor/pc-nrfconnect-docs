@@ -1,3 +1,6 @@
+---
+---
+
 The API for nRF Connect apps is inspired by the extension API used by the
 [[Hyper™ terminal|https://hyper.is]]. nRF Connect comes with a skeleton that has
 standard UI components for listing serial ports, navigation menus, logging, etc.

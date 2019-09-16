@@ -19,3 +19,15 @@ but they mainly boil down to these steps:
 3. Run `gem install bundler` once inside this repo folder.
 4. Each time you want to view your local files run `bundle exec jekyll serve`
    and go to `http://localhost:4000`.
+
+## Gotcha
+
+When creating a new markdown page, you should include the Jeckyl’s “Front
+matter”: Two lines with three dashes like this at the beginning:
+
+    ---
+    ---
+
+Sometimes Jeckyl does not process the markdown files correctly without that and
+[the GitHub Pages documentation also says they are required](https://help.github.com/en/articles/configuring-jekyll#front-matter-is-required),
+so just include them, like in any other documentation file in this project.
