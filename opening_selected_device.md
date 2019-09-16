@@ -14,10 +14,11 @@ serialport library.
 
 ## Device actions
 
-First, create a new app project as described in the [[getting started]] guide
-and launch the app from nRF Connect. During development it is often useful to
-open [[Chrome developer tools|https://developer.chrome.com/devtools]] by
-pressing Ctrl+Shift+I (Windows/Linux) or Cmd+Alt+I (macOS). All actions that are
+First, create a new app project as described in the
+[getting started](./getting_started) guide and launch the app from nRF Connect.
+During development it is often useful to open
+[Chrome developer tools](https://developer.chrome.com/devtools) by pressing
+Ctrl+Shift+I (Windows/Linux) or Cmd+Alt+I (macOS). All actions that are
 dispatched at runtime are logged to the developer tools console, so that you can
 see what is happening under the hood.
 
@@ -62,16 +63,16 @@ action
 Apps can listen to actions and implement custom behavior when a certain action
 is dispatched. Now we know which actions to listen to, plus the information that
 can be pulled out from the actions. To see all actions that are available, see
-[[lib/windows/app/actions|https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/actions]].
+[lib/windows/app/actions](https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/actions).
 
 ## Acting upon actions with middleware
 
 By implementing
-[[middleware|API-reference#intercepting-actions-with-middleware]], apps can
+[middleware](./api_reference#intercepting-actions-with-middleware), apps can
 intercept or act upon actions before they are received by the
-[[reducers|https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/reducers]].
+[reducers](https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/reducers).
 Middleware may seem a bit odd at first, and you can read more about it in the
-[[Redux documentation|http://redux.js.org/docs/advanced/Middleware.html]].
+[Redux documentation](http://redux.js.org/docs/advanced/Middleware.html).
 However, you do not need to know all the details to use it. A middleware
 function looks like this:
 

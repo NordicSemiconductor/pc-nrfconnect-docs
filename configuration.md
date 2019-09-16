@@ -74,7 +74,7 @@ useful to know.
 
 ### Externals
 
-Apps can import a few [[modules|Modules]] from nRF Connect. The default webpack
+Apps can import a few [modules](./modules) from nRF Connect. The default webpack
 configuration ignores these by adding them as
 [externals](https://webpack.js.org/configuration/externals/), as they are only
 available at runtime. The same is automatically done for any `dependencies` from

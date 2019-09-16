@@ -5,26 +5,18 @@
 
 ### Basics
 
-- [[Getting started]]
-- [[Configuration]]
-- [[Supported apps]]
-- [[Contributing]]
+- [Getting started](./getting_started)
+- [Configuration](./configuration)
+- [Supported apps](./supported_apps)
+- [Contributing](./contributing)
 
 ### API
 
-- [[API reference]]
-  - [[Component decoration|API reference#component decoration]]
-  - [[Dispatching actions|API reference#dispatching actions]]
-  - [[Passing information from state to components|API reference#passing
-    information from state to components]]
-  - [[Intercepting actions with middleware|API reference#intercepting actions
-    with middleware]]
-  - [[Adding information to state|API reference#adding information to state]]
-- [[Modules]]
+- [API reference](./api_reference)
+- [Modules](./modules)
 
 ### Examples
 
-- [[Adding navigation menu items]]
-- [[Opening selected device]]
-- [[Programming selected device]]
-- [[Using Bluetooth® low energy driver]]
+- [Adding navigation menu items](./adding_navigation_menu_items)
+- [Opening selected device](./opening_selected_device)
+- [Programming selected device](./programming_selected_device)

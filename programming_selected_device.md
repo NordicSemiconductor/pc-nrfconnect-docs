@@ -5,12 +5,12 @@ _Note: This functionality was introduced in nRF Connect >=v2.4_
 
 ## Introduction
 
-In the [[opening selected device]] example we described how to open a device's
-serial port when the device is selected. This works fine when we do not require
-any setup of the device before opening it. However, in many cases apps require a
-specific firmware to be programmed on the device before it can be opened. This
-example describes how to set up (program) a device using the built-in device
-setup feature in nRF Connect.
+In the [opening selected device](./opening_selected_device) example we described
+how to open a device's serial port when the device is selected. This works fine
+when we do not require any setup of the device before opening it. However, in
+many cases apps require a specific firmware to be programmed on the device
+before it can be opened. This example describes how to set up (program) a device
+using the built-in device setup feature in nRF Connect.
 
 ## Configuration
 
@@ -44,10 +44,10 @@ and a `DEVICE_DESELECTED` action is dispatched.
 
 ## Opening a device after it has been set up
 
-In the [[opening selected device]] example, we described how to act upon actions
-using middleware, and opening a device when `DEVICE_SELECTED` is dispatched.
-Now, we take this a step further and wait until the device has been set up
-before opening it.
+In the [opening selected device](./opening_selected_device) example, we
+described how to act upon actions using middleware, and opening a device when
+`DEVICE_SELECTED` is dispatched. Now, we take this a step further and wait until
+the device has been set up before opening it.
 
 A full example of how to do this for PCA10040 can be seen below. When a PCA10040
 device is selected, this will first check if `rssi-fw-1.0.0` is present on

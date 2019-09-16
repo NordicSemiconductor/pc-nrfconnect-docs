@@ -1,11 +1,13 @@
 ---
 ---
 
+# API reference
+
 The API for nRF Connect apps is inspired by the extension API used by the
-[[Hyper™ terminal|https://hyper.is]]. nRF Connect comes with a skeleton that has
+[Hyper™ terminal](https://hyper.is). nRF Connect comes with a skeleton that has
 standard UI components for listing serial ports, navigation menus, logging, etc.
 Apps can decorate the standard components, create new components, and use
-[[built-in libraries|Modules]] in order to create end-user tools.
+[built-in libraries](./modules) in order to create end-user tools.
 
 nRF Connect apps are universal Node.js modules that export one or more of the
 properties or methods below. See the
@@ -111,7 +113,7 @@ for a complete example.
         <code>decorateSidePanel</code>
       </td>
       <td>
-        <p>Invoked with the component that is to be decorated. Must return a Higher-Order Component (HOC). See [[examples|API reference#component decoration]].</p>
+        <p>Invoked with the component that is to be decorated. Must return a Higher-Order Component (HOC). See <a href="#component-decoration">examples</a>.</p>
         <p>Parameters:</p>
         <table>
           <tbody>
@@ -136,7 +138,7 @@ for a complete example.
         <code>mapSidePanelDispatch</code><br />
       </td>
       <td>
-        <p>Allows overriding props that are passed to the components. Receives <code>dispatch</code> and the original <code>props</code>, and must return a new map of props. See [[examples|API reference#dispatching actions]].</p>
+        <p>Allows overriding props that are passed to the components. Receives <code>dispatch</code> and the original <code>props</code>, and must return a new map of props. See <a href="#dispatching-actions">examples</a>.</p>
         <p>Parameters:</p>
         <table>
           <tbody>
@@ -165,7 +167,7 @@ for a complete example.
         <code>mapSidePanelState</code><br />
       </td>
       <td>
-        <p>Allows overriding props that are passed to the components. Receives the <code>state</code> object and the original <code>props</code>, and must return a new map of props. See [[examples|API reference#passing information from state to components]].</p>
+        <p>Allows overriding props that are passed to the components. Receives the <code>state</code> object and the original <code>props</code>, and must return a new map of props. See <a href="#passing-information-from-state-to-components">examples</a>.</p>
         <p>Parameters:</p>
         <table>
           <tbody>
@@ -187,7 +189,7 @@ for a complete example.
       </td>
       <td>
         <p>A custom <a href="http://redux.js.org/docs/advanced/Middleware.html">Redux middleware</a> that can intercept any action. The middleware is invoked after an action has been dispatched, but before it reaches the reducers.</p>
-        <p>This is useful e.g. when the app wants to perform some asynchronous operation when an action is dispatched by core. Refer to the <a href="https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/actions">core actions</a> to see which actions may be intercepted. See [[examples|API reference#intercepting actions with middleware]].</p>
+        <p>This is useful e.g. when the app wants to perform some asynchronous operation when an action is dispatched by core. Refer to the <a href="https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/actions">core actions</a> to see which actions may be intercepted. See <a href="#intercepting-actions-with-middleware">examples</a>.</p>
       </td>
     </tr>
     <tr>
@@ -195,7 +197,7 @@ for a complete example.
         <code>reduceApp</code><br />
       </td>
       <td>
-        <p>Invoked when an action is dispatched. This is where the app can keep its own custom state. See [[examples|API reference#adding information to state]].</p>
+        <p>Invoked when an action is dispatched. This is where the app can keep its own custom state. See <a href="#adding-information-to-state">examples</a>.</p>
         <p>Parameters:</p>
         <table>
           <tbody>
