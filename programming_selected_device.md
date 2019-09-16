@@ -3,8 +3,6 @@
 
 # Programming selected device
 
-_Note: This functionality was introduced in nRF Connect >=v2.4_
-
 ## Introduction
 
 In the [opening selected device](./opening_selected_device) example we described

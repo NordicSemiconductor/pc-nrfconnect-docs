@@ -3,8 +3,6 @@
 
 # Opening selected device
 
-_Note: This example is compatible with nRF Connect >=v2.4_
-
 ## Introduction
 
 The device selector detects and displays available devices based on the app's
