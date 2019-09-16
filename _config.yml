@@ -1,4 +1,2 @@
-theme: jekyll-theme-minimal
-
+theme: jekyll-theme-slate
 title: Developer documentation for nRF Connect for Desktop
-logo: icon.png
