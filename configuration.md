@@ -1,6 +1,8 @@
 ---
 ---
 
+# Configuration
+
 ## File system location
 
 nRF Connect stores apps in the following directory:

@@ -1,7 +1,7 @@
 ---
 ---
 
-## Supported apps
+# Supported apps
 
 - [nRF Connect Bluetooth Low Energy](https://github.com/NordicSemiconductor/pc-nrfconnect-ble)
 - [nRF Connect Programmer](https://github.com/NordicSemiconductor/pc-nrfconnect-programmer)

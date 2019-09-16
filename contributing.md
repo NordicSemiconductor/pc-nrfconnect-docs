@@ -1,7 +1,7 @@
 ---
 ---
 
-## Contributing
+# Contributing
 
 Feel free to file code related issues on GitHub Issues and/or submit a pull
 request. In order to accept your pull request, we need you to sign our

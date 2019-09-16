@@ -1,6 +1,8 @@
 ---
 ---
 
+# Getting started
+
 ## Prerequisites
 
 ### Recommended knowledge

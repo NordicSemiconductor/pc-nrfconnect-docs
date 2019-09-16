@@ -1,6 +1,8 @@
 ---
 ---
 
+# Programming selected device
+
 _Note: This functionality was introduced in nRF Connect >=v2.4_
 
 ## Introduction

@@ -1,6 +1,8 @@
 ---
 ---
 
+# Modules
+
 ## List of modules
 
 nRF Connect includes several modules that apps can import:

@@ -1,7 +1,7 @@
 ---
 ---
 
-## Adding items
+# Adding navigation menu items
 
 The navigation menu is rendered by the `NavMenu` component. The component
 receives `menuItems` as a property, so adding your own menu items can be done
