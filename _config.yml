@@ -1,3 +1,2 @@
-theme: jekyll-theme-slate
-title: <a href="./">nRF Connect for Desktop</a>
-description: <a href="./">How to program nRF Connect for Desktop</a>
+theme: jekyll-theme-primer
+title: Developer documentation for nRF Connect for Desktop
