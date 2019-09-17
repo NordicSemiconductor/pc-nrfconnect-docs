@@ -1,6 +1,10 @@
 ---
 ---
 
+$nordic-blue: #00a9ce;
+
+$text-blue: $nordic-blue;
+
 @import "{{ site.theme }}";
 
 body {
