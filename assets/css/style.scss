@@ -1,0 +1,22 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+body {
+  padding:50px;
+}
+
+header {
+  width: 270px;
+  float: left;
+  position: fixed;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+main {
+  margin-left: 300px;
+}

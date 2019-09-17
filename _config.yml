@@ -1,2 +1,5 @@
 theme: jekyll-theme-primer
-title: Developer documentation for nRF Connect for Desktop
+
+title: nRF Connect for Desktop
+description: Developer documentation
+logo: icon.png
