@@ -22,12 +22,12 @@ but they mainly boil down to these steps:
 
 ## Gotcha
 
-When creating a new markdown page, you should include the Jeckyl’s “Front
+When creating a new markdown page, you should include the Jekyll’s “Front
 matter”: Two lines with three dashes like this at the beginning:
 
     ---
     ---
 
-Sometimes Jeckyl does not process the markdown files correctly without that and
+Sometimes Jekyll does not process the markdown files correctly without that and
 [the GitHub Pages documentation also says they are required](https://help.github.com/en/articles/configuring-jekyll#front-matter-is-required),
 so just include them, like in any other documentation file in this project.
