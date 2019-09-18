@@ -33,3 +33,48 @@ header {
 main {
   margin-left: 300px;
 }
+
+#footer-toc {
+  display: none;
+}
+
+@media print, screen and (max-width: 960px) {
+  header {
+    float: none;
+    position: static;
+    width: auto;
+
+    img {
+      max-width: 100px;
+      margin: 5px 0;
+    }
+
+    hr {
+      margin: 0;
+    }
+
+    #header-toc {
+      display: none;
+    }
+  }
+
+  main {
+    margin-left: 0;
+  }
+
+  #footer-toc {
+    display: block;
+  }
+}
+
+@media print, screen and (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+}
+
+@media print {
+  #footer-toc {
+    display: none;
+  }
+}

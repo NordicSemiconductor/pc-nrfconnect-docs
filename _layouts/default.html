@@ -17,8 +17,10 @@
           <img src="{{site.logo | relative_url}}" alt="Logo" />
         {% endif %}
 
-        {% capture my_include %}{% include toc.md %}{% endcapture %}
-        {{ my_include | markdownify }}
+        <div id="header-toc">
+          {% capture my_include %}{% include toc.md %}{% endcapture %}
+          {{ my_include | markdownify }}
+        </div>
 
         {% if site.github.is_project_page %}
         <hr>
@@ -29,6 +31,13 @@
       <main class="markdown-body">
         {{ content }}
       </main>
+
+      <div id="footer-toc">
+          <hr>
+
+          {% capture my_include %}{% include toc.md %}{% endcapture %}
+          {{ my_include | markdownify }}
+      </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
     <script>anchors.add();</script>
   </body>
