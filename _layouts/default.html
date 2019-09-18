@@ -17,7 +17,11 @@
           <img src="{{site.logo | relative_url}}" alt="Logo" />
         {% endif %}
 
+        {% capture my_include %}{% include toc.md %}{% endcapture %}
+        {{ my_include | markdownify }}
+
         {% if site.github.is_project_page %}
+        <hr>
         <p><a href="{{ site.github.repository_url }}">{{ site.github.repository_nwo }} on GitHub</a></p>
         {% endif %}
       </header>
