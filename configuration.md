@@ -12,9 +12,9 @@ nRF Connect stores apps in the following directory:
 
 ### Official apps
 
-Official apps are published to the npm registry. When adding an app through the
-_Add/remove apps_ UI, the app tarball is downloaded from the npm registry and
-extracted to `.nrfconnect-apps/node_modules`.
+Official apps are uploaded to `developer.nordicsemi.com`. When clicking on
+_Install_ in the launcher, the app tarball is downloaded from
+`developer.nordicsemi.com` and extracted to `.nrfconnect-apps/node_modules`.
 
 ### Local apps
 
