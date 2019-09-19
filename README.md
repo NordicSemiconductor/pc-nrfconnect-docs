@@ -16,7 +16,7 @@ but they mainly boil down to these steps:
 
 1. Make sure you have a recent ruby.
 2. If you have not already bundler installed, run `gem install bundler`.
-3. Run `gem install bundler` once inside this repo folder.
+3. Run `bundle install` once inside this repo folder.
 4. Each time you want to view your local files run `bundle exec jekyll serve`
    and go to `http://localhost:4000`.
 
