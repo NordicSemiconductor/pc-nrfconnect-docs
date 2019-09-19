@@ -5,7 +5,7 @@ create a new app for it, modify an existing app or modify the core of nRF
 Connect for Desktop itself.
 
 This documentation can be read online at
-https://NordicPlayground.github.io/pc-nrfconnect-docs/.
+https://NordicSemiconductor.github.io/pc-nrfconnect-docs/.
 
 ## Modifying the documentation
 
