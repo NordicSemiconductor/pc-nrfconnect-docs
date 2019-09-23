@@ -31,3 +31,9 @@ matter”: Two lines with three dashes like this at the beginning:
 Sometimes Jekyll does not process the markdown files correctly without that and
 [the GitHub Pages documentation also says they are required](https://help.github.com/en/articles/configuring-jekyll#front-matter-is-required),
 so just include them, like in any other documentation file in this project.
+
+## Contributing
+
+See the
+[infos on contributing](https://nordicsemiconductor.github.io/pc-nrfconnect-docs/contributing)
+for details.
