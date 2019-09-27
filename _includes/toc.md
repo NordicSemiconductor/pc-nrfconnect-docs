@@ -2,6 +2,7 @@
 ## Basics
 
 - [Getting started](./getting_started)
+- [Create new app](./create_new_app)
 - [Configuration](./configuration)
 - [Supported apps](./supported_apps)
 - [Contributing](./contributing)
