@@ -2,6 +2,7 @@
 
 - [Getting started](./getting_started)
 - [Create new app](./create_new_app)
+- [Work on existing app](./work_on_existing_app)
 
 ## API
 

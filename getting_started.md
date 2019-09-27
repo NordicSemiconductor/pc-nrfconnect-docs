@@ -80,11 +80,13 @@ for Desktop:
 - [`pc-nrfconnect-devdep`](https://github.com/NordicSemiconductor/pc-nrfconnect-devdep)
   provides common package dependencies, scripts and configurations for all
   official applications and the core. E.g. it includes configurations for
-  [webpack](https://webpack.js.org), [ESLint](https://eslint.org) and [Jest](https://jestjs.io) as well as scripts to run them.
+  [webpack](https://webpack.js.org), [ESLint](https://eslint.org) and
+  [Jest](https://jestjs.io) as well as scripts to run them.
 - [`pc-nrfconnect-boilerplate`](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate)
   is a very minimal app, which is not useful on it's own, but may be used as a
   template to start new apps.
 
 ## Next steps
 
-Coming up next: [How to develop a new app for nRF Connect for Desktop](./create_new_app).
+You are now set up to either [develop a new app](./create_new_app) or
+[work on an existing app](./work_on_existing_app) of nRF Connect for Desktop.
