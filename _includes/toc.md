@@ -2,7 +2,8 @@
 
 - [Getting started](./getting_started)
 - [Create new app](./create_new_app)
-- [Work on existing app](./work_on_existing_app)
+- [Get an existing app's sources](./get_an_existing_app_s_sources)
+- [Everyday app development](./app_development)
 
 ## API
 

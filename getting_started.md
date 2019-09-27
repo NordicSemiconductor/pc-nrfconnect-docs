@@ -23,6 +23,19 @@ You should have a basic setup and little familiarity with these:
 - [Git](https://git-scm.com/downloads)
 - An editor with good JavaScript support (e.g. VS Code, Atom, WebStorm)
 
+### Install nRF Connect
+
+If you only want to develop (existing or new) apps, it is sufficient to have nRF
+Connect for Desktop installed as a binary. If you do not have it installed
+already, just follow the
+[instructions on how to install nRF Connect for Desktop](https://github.com/NordicSemiconductor/pc-nrfconnect-core#using-nrf-connect-for-desktop).
+
+Also create the `~/.nrfconnect-apps/local` directory if it does not already
+exist:
+
+- Linux/macOS: `mkdir -p "$HOME/.nrfconnect-apps/local"`
+- Windows: `md "%USERPROFILE%\.nrfconnect-apps\local"`
+
 ## Architecture of nRF Connect for Desktop
 
 Before starting, you should know the basic structure of nRF Connect for Desktop.
@@ -89,4 +102,5 @@ for Desktop:
 ## Next steps
 
 You are now set up to either [develop a new app](./create_new_app) or
-[work on an existing app](./work_on_existing_app) of nRF Connect for Desktop.
+[work on an existing app](./get_an_existing_app_s_sources) of nRF Connect for
+Desktop.
