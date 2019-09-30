@@ -101,6 +101,6 @@ for Desktop:
 
 ## Next steps
 
-You are now set up to either [develop a new app](./create_new_app) or
-[work on an existing app](./get_an_existing_app_s_sources) of nRF Connect for
-Desktop.
+You are now set up to [develop a new app](./create_new_app),
+[work on an existing app](./get_an_existing_app_s_sources) or
+[work on the core](./core_development) of nRF Connect for Desktop.
