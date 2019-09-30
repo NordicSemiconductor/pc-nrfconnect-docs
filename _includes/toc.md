@@ -21,4 +21,5 @@
 
 - [Configuration](./configuration)
 - [Supported apps](./supported_apps)
+- [Installing local apps](./local_app_installation)
 - [Contributing](./contributing)

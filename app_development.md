@@ -41,3 +41,10 @@ You can run the linter with `npm run lint`.
 
 While you can run the tests once with `npm test`, we recommend to keep them
 running repeatedly during development with `npm run test-watch`.
+
+## Distribute development versions
+
+When you want to give your development version of an app to others, run
+`npm pack`. This will create a file like `pc-nrfconnect-boilerplate-0.0.1.tgz`,
+which you can send to others, who are supposed to test your app. Then they can
+[install that app locally](./local_app_installation).
