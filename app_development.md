@@ -27,9 +27,11 @@ production use (e.g. the bundle is minified).
 
 ## Running
 
-Start nRF Connect for Desktop and it will automatically find the app in
-`~/.nrfconnect-apps/local` and display it in the list of all apps with a “local”
-underneath it. You can launch it from there.
+Start nRF Connect for Desktop. It will find all apps in
+`~/.nrfconnect-apps/local` and through the `package.json` in your project pick
+up the `dist/bundle.js` that was build before. Because of this, it display the
+app it in the list of all apps with a “local” underneath it and you can launch
+it from there.
 
 When you edit the source of the app and it is recompiled (probably by keeping
 `npm run dev` running), pressing `Ctrl+R` (Windows or Linux) or `Cmd+R` (macOS)
