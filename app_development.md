@@ -15,12 +15,15 @@ dependencies change.
 
 ## Compiling
 
-Run `npm run build` to compile and pack everything once, which creates
-`dist/bundle.js`.
+During active development we recommend to run `npm run dev`: It compiles and
+packs all your code into `dist/bundle.js`. It then waits, watches your code and
+whenever you save source files it creates a new `dist/bundle.js` (`Ctrl+C` to
+stop).
 
-During active development we recommend to run `npm run dev` instead, which
-watches your code and creates a new `dist/bundle.js` repeatedly after every
-change (`Ctrl+C` to stop).
+If you just want to compile and pack the code only once, you can use
+`npm run webpack` instead. There is also `npm run build` which too creates a
+`dist/bundle.js` once, but contrary to `dev` and `webpack` it is optimized for
+production use (e.g. the bundle is minified).
 
 ## Running
 
