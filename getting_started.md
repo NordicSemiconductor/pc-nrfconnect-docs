@@ -86,7 +86,7 @@ for Desktop:
     to list devices.
   - [`pc-nrfjprog-js`](https://github.com/NordicSemiconductor/pc-nrfjprog-js) to
     access
-    [the `nrfjprog` command line tool](https://infocenter.nordicsemi.com/topic/ug_nrf5x_cltools/UG/cltools/nrf5x_nrfjprogexe.html).
+    [the `nrfjprog` DLL](https://infocenter.nordicsemi.com/topic/ug_nrf5x_cltools/UG/cltools/nrf5x_nrfjprogdll.html).
   - [`pc-ble-driver-js`](https://github.com/NordicSemiconductor/pc-ble-driver-js)
     to access
     [the `pc-ble-driver` library](https://github.com/NordicSemiconductor/pc-ble-driver).
