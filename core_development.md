@@ -85,3 +85,20 @@ Relevant scripts for different testing needs:
   network access
 - `npm run test-e2e-online`: Run only end-to-end tests that require network
   access
+
+## Installing the Electron dev tools
+
+During development the
+[React DevTools](https://github.com/facebook/react/tree/master/packages/react-devtools)
+and the [Redux DevTools](https://github.com/zalmoxisus/redux-devtools-extension)
+are really handy. The easiest way to install them is to run
+
+    npm run install-devtools
+
+when you have the source of the core checked out as described above. You only
+need to run this command once, the tools will stay installed in subsequent runs
+of Electron.
+
+If you want to remove all dev tools later run
+
+    npm run remove-devtools
