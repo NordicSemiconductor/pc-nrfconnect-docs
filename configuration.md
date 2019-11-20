@@ -117,4 +117,4 @@ const MyComponent = () => (
 
 ## Release notes
 
-All official apps should must have a file `Changelog.md`. When running `npm run nordic-publish` it is automatically uploaded to `developer.nordicsemi.com` and the users see it in the launcher as release notes of the app.
+All official apps should have a file `Changelog.md`. When running `npm run nordic-publish` it is automatically uploaded to `developer.nordicsemi.com` and the users see it in the launcher as release notes of the app.
