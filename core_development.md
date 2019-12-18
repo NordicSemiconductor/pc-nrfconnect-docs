@@ -4,7 +4,7 @@
 # How to do development of the core of nRF Connect for Desktop
 
 Developing
-[the core of nRF Connect for Desktop](https://github.com/NordicSemiconductor/pc-nrfconnect-core)
+[the core of nRF Connect for Desktop](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher)
 is a bit different than [developing an app](./app_development) for it.
 
 As you have read in the
@@ -51,7 +51,7 @@ which describes requirements for compilation.
 ## Running from source
 
 Fetch the source from
-[https://github.com/NordicSemiconductor/pc-nrfconnect-core](https://github.com/NordicSemiconductor/pc-nrfconnect-core)
+[https://github.com/NordicSemiconductor/pc-nrfconnect-launcher](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher)
 and like on most Node.js projects, you need to install the dependencies once at
 the beginning with `npm install` and only need to repeat that later if the
 dependencies change.

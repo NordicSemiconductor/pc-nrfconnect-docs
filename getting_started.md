@@ -28,7 +28,7 @@ You should have a basic setup and little familiarity with these:
 If you only want to develop (existing or new) apps, it is sufficient to have nRF
 Connect for Desktop installed as a binary. If you do not have it installed
 already, just follow the
-[instructions on how to install nRF Connect for Desktop](https://github.com/NordicSemiconductor/pc-nrfconnect-core#using-nrf-connect-for-desktop).
+[instructions on how to install nRF Connect for Desktop](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher#using-nrf-connect-for-desktop).
 
 Also create the `~/.nrfconnect-apps/local` directory if it does not already
 exist:
@@ -44,7 +44,7 @@ The two main blocks are the core and the apps:
 ### The core
 
 The core resides in the project
-[`pc-nrfconnect-core`](https://github.com/NordicSemiconductor/pc-nrfconnect-core)
+[`pc-nrfconnect-launcher`](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher)
 and provides multiple things:
 
 - The launcher from which the apps are installed and launched
