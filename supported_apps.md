@@ -10,3 +10,4 @@
 - [nRF Connect Trace Collector](https://github.com/NordicSemiconductor/pc-nrfconnect-tracecollector)
 - [nRF Connect Power Profiler](https://github.com/NordicSemiconductor/pc-nrfconnect-ppk)
 - [nRF Connect RSSI Viewer](https://github.com/NordicSemiconductor/pc-nrfconnect-rssi)
+- [nRF Connect Direct Test Mode](https://github.com/NordicSemiconductor/pc-nrfconnect-dtm)
