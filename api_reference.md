@@ -189,7 +189,7 @@ for a complete example.
       </td>
       <td>
         <p>A custom <a href="http://redux.js.org/docs/advanced/Middleware.html">Redux middleware</a> that can intercept any action. The middleware is invoked after an action has been dispatched, but before it reaches the reducers.</p>
-        <p>This is useful e.g. when the app wants to perform some asynchronous operation when an action is dispatched by core. Refer to the <a href="https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/actions">core actions</a> to see which actions may be intercepted. See <a href="#intercepting-actions-with-middleware">examples</a>.</p>
+        <p>This is useful e.g. when the app wants to perform some asynchronous operation when an action is dispatched by core. Refer to the <a href="https://github.com/NordicSemiconductor/pc-nrfconnect-launcher/tree/master/src/legacy/app/actions">core actions</a> to see which actions may be intercepted. See <a href="#intercepting-actions-with-middleware">examples</a>.</p>
       </td>
     </tr>
     <tr>
@@ -325,7 +325,7 @@ documentation to see how this is done.
 ### Passing information from state to components
 
 The nRF Connect core keeps its state under `state.core`. Refer to the
-[coreReducer](https://github.com/NordicSemiconductor/pc-nrfconnect-core/blob/master/lib/windows/app/reducers/coreReducer.js)
+[coreReducer](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher/blob/master/src/legacy/app/reducers/coreReducer.js)
 to see what information may be found there. The app can maintain its own state
 under `state.app` by implementing the `reduceApp` method.
 
@@ -361,7 +361,7 @@ By implementing a
 intercept or act upon actions before they are received by the reducers. This is
 useful for changing or expanding on the default nRF Connect behavior. Refer to
 the
-[core actions](https://github.com/NordicSemiconductor/pc-nrfconnect-core/tree/master/lib/windows/app/actions)
+[core actions](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher/tree/master/src/legacy/app/actions)
 to see the list of actions that may pass through the middleware.
 
 A common scenario is that the app should open serial port when a port has been
