@@ -94,7 +94,7 @@ export function middleware(store) {
             logger.info('Validating firmware for the selected device');
         } else if (action.type === 'DEVICE_SETUP_COMPLETE') {
             const device = action.device;
-            port = new SerialPort(device.serialport.comName, options, err => {
+            port = new SerialPort(device.serialport.path, options, err => {
                 if (err) {
                     logger.error(`Failed to open port: ${err.message}`);
                 } else {
