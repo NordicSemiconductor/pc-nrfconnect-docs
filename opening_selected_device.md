@@ -43,7 +43,7 @@ action
     device: Object
       serialNumber: 000680551615,
       serialport: Object
-        comName: "/dev/ttyACM0",
+        path: "/dev/ttyACM0",
         manufacturer: "SEGGER",
         productId: "0105",
         serialNumber: 000680551615,
@@ -101,7 +101,7 @@ function middleware(store) {
 Now that we know which actions to use and how to use middleware, we can
 implement opening and closing the serial port of the selected device. We listen
 for the `DEVICE_SELECTED` and `DEVICE_DESELECTED` action types, pull out the
-`comName` from the action, and open/close the port with the serialport library.
+`path` from the action, and open/close the port with the serialport library.
 
 A full example of how to do this in the `index.jsx` file of the app can be seen
 below. Here we are also logging the status out to the log viewer.
@@ -126,7 +126,7 @@ export function middleware(store) {
     return next => action => {
         if (action.type === 'DEVICE_SELECTED') {
             const device = action.device;
-            port = new SerialPort(device.serialport.comName, options, err => {
+            port = new SerialPort(device.serialport.path, options, err => {
                 if (err) {
                     logger.error(`Failed to open port: ${err.message}`);
                 } else {

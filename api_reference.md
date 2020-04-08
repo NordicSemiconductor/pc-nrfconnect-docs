@@ -389,7 +389,7 @@ export function middleware(store) {
     return next => action => {
         if (action.type === 'DEVICE_SELECTED') {
             const device = action.device;
-            port = new SerialPort(device.serialport.comName, options, err => {
+            port = new SerialPort(device.serialport.path, options, err => {
                 if (err) {
                     logger.error(`Failed to open port: ${err.message}`);
                 } else {
