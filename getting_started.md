@@ -98,6 +98,8 @@ for Desktop:
 - [`pc-nrfconnect-boilerplate`](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate)
   is a very minimal app, which is not useful on it's own, but may be used as a
   template to start new apps.
+- [`pc-nrfconnect-docs`](https://github.com/NordicSemiconductor/pc-nrfconnect-docs)
+  contains these pages to describe how to develop nRF Connect for Desktop.
 
 ## Next steps
 
