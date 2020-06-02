@@ -3,13 +3,16 @@
 
 # How to do development of the core of nRF Connect for Desktop
 
-Developing
-[the core of nRF Connect for Desktop](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher)
-is a bit different than [developing an app](./app_development) for it.
+Developing the core of nRF Connect for Desktop is a bit different than
+[developing an app](./app_development) for it.
 
-As you have read in the
-[architecture summary about the core](./getting_started#the-core), the core
-project is responsible for multiple things. So there could be several
+As you have read in the [architecture summary](./getting_started#the-core) the
+core is split up over two projects:
+[`pc-nrfconnect-launcher`](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher)
+and
+[`pc-nrfconnect-shared`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared).
+
+These projects are responsible for multiple things. So there could be several
 motivations for working on it: Most probably you want to change the launcher or
 code that is common for the apps.
 
@@ -48,7 +51,7 @@ not exist for your platform/Node.js version, then refer to the
 [pc-ble-driver-js README](https://github.com/NordicSemiconductor/pc-ble-driver-js)
 which describes requirements for compilation.
 
-## Running from source
+## Running the launcher from source
 
 Fetch the source from
 [https://github.com/NordicSemiconductor/pc-nrfconnect-launcher](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher)
@@ -80,11 +83,7 @@ Relevant scripts for different testing needs:
 - `npm run lint`: Lint the source
 - `npm test`: Run the unit tests once
 - `npm run test-watch`: Run unit tests and watch for changes
-- `npm run test-e2e`: Run all end-to-end tests
-- `npm run test-e2e-offline`: Run only end-to-end tests that do not require
-  network access
-- `npm run test-e2e-online`: Run only end-to-end tests that require network
-  access
+- `npm run test-e2e`: The launcher additionally included end-to-end tests
 
 ## Installing the Electron dev tools
 

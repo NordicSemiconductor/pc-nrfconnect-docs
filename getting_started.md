@@ -39,13 +39,23 @@ exist:
 ## Architecture of nRF Connect for Desktop
 
 Before starting, you should know the basic structure of nRF Connect for Desktop.
-The two main blocks are the core and the apps:
+
+It is currently a bit in flux, because we are transitioning to a slightly
+different architecture. The overall concept stays the same, but sometimes there
+are differences and then we will explain the difference between the old and the
+new architecture. When developing new apps, you should stick to the new
+architecture, but when working on existing apps or the core, you might need to
+be aware of the old architecture.
+
+Which brings us right to the two main blocks the core and the apps:
 
 ### The core
 
-The core resides in the project
+The core resides in the two projects
 [`pc-nrfconnect-launcher`](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher)
-and provides multiple things:
+and
+[`pc-nrfconnect-shared`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared).
+It provides multiple things:
 
 - The launcher from which the apps are installed and launched
 - The [Electron shell](https://electronjs.org) in which the launcher and the
@@ -53,16 +63,30 @@ and provides multiple things:
 - The common code for all apps: UI elements and code to give lower level access
   hardware
 
-A bit unusual: The common code is not only provided during development, the
-libraries are also provided during runtime, so that the individual apps do not
-have to provide them themselves.
+Where the last part, the common code, resides changes with the new architecture:
+Now it is found in project `pc-nrfconnect-shared` (since release
+[v4.8.0](https://github.com/NordicSemiconductor/pc-nrfconnect-shared/releases/tag/v4.8.0)
+of that project) but previously it was also included in
+``pc-nrfconnect-launcher`, where now only legacy variants remain for apps that
+have not been converted to the new architecture.
 
-Providing the common libraries through the core at runtime has two advantages
-for the apps: The apps can be a lot smaller and they are usually platform
-independent, as the only platform specific parts are in the core.
+A bit unusual: The common code is not only provided during development and then
+compiled into the apps. Instead the launcher also provides these libraries
+during runtime, so that the individual apps do not have to include the shared
+code themselves.
+
+Providing the common libraries through the launcher at runtime has two
+advantages for the apps: The apps can be a lot smaller and they are usually
+platform independent, as the only platform specific parts are in the core.
 
 Conversely, this means that the core is platform dependent and a
 platform-specific variant must be downloaded or compiled.
+
+Besides common code `pc-nrfconnect-shared` also provides common package
+dependencies, scripts and configurations for all official applications and the
+core. E.g. it includes configurations for [webpack](https://webpack.js.org),
+[ESLint](https://eslint.org) and [Jest](https://jestjs.io) as well as scripts to
+run them.
 
 ### The apps
 
@@ -90,11 +114,6 @@ for Desktop:
   - [`pc-ble-driver-js`](https://github.com/NordicSemiconductor/pc-ble-driver-js)
     to access
     [the `pc-ble-driver` library](https://github.com/NordicSemiconductor/pc-ble-driver).
-- [`pc-nrfconnect-devdep`](https://github.com/NordicSemiconductor/pc-nrfconnect-devdep)
-  provides common package dependencies, scripts and configurations for all
-  official applications and the core. E.g. it includes configurations for
-  [webpack](https://webpack.js.org), [ESLint](https://eslint.org) and
-  [Jest](https://jestjs.io) as well as scripts to run them.
 - [`pc-nrfconnect-boilerplate`](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate)
   is a very minimal app, which is not useful on it's own, but may be used as a
   template to start new apps.
