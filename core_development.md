@@ -76,7 +76,55 @@ have a binary installation of nRF Connect for Desktop or
 [develop local apps](./app_development), the same apps will show up in this
 instance too.
 
-### Testing
+## Developing common code in [pc-nrfconnect-shared](https://github.com/NordicSemiconductor/pc-nrfconnect-shared)
+
+When you are developing common code in `pc-nrfconnect-shared` and you want to
+check the changes quickly in the launcher or an app the steps above are not
+sufficient, because by default the launcher will include a released version of
+`pc-nrfconnect-shared` from GitHub, not you local one. But with some additional
+effort you can achieve this by leveraging
+[`npm-link`](https://docs.npmjs.com/cli/link):
+
+1. Have both, `pc-nrfconnect-launcher` and `pc-nrfconnect-shared` checked out
+   into directories next to each other.
+2. In the directory `pc-nrfconnect-launcher` run
+```
+npm install; npm link ../pc-nrfconnect-shared
+```
+3. In the directory `pc-nrfconnect-shared` run
+```
+npm ci --prod
+```
+
+With this setup, you can make changes in `pc-nrfconnect-shared`, then recompile
+`pc-nrfconnect-launcher` (`pc-nrfconnect-shared` does not need to be compiled),
+and immediately see the effects of the changes in `pc-nrfconnect-shared`.
+Usually the best setup is again to use `npm run dev` in
+`pc-nrfconnect-launcher`, as described above in
+[“Running the launcher from source”](#running-the-launcher-from-source).
+
+If you forget to run `npm ci --prod` in `pc-nrfconnect-shared`, you may get
+errors because of conflicting package versions, especially of `react` and
+`react-redux`.
+
+### Caveat:
+
+If you later run `npm install` in the directory `pc-nrfconnect-launcher` (e.g.
+because you install additional packages), the link to `pc-nrfconnect-shared`
+often gets lost. In that case you usually have to repeat running
+`link ../pc-nrfconnect-shared` in the directory `pc-nrfconnect-launcher` and
+then `npm ci --prod` in the directory `pc-nrfconnect-shared`.
+
+If you later run `npm install` in the directory `pc-nrfconnect-shared` (e.g.
+because you install additional packages there), you may need to repeat running
+`npm ci --prod` in that folder.
+
+Because `npm ci --prod` does not install the development dependencies, you
+cannot run the tests successfully in `pc-nrfconnect-shared` at that moment.
+Before you want to run the tests again, execute `npm ci` and you will also have
+the development dependencies installed again.
+
+## Testing
 
 Relevant scripts for different testing needs:
 
