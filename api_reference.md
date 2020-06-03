@@ -1,6 +1,10 @@
 ---
 ---
 
+<div class="highlight">
+  <h2 class="err">Caveat: This page still describes the old architecture.</h2>
+</div>
+
 # API reference
 
 The API for nRF Connect apps is inspired by the extension API used by the

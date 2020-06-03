@@ -1,6 +1,10 @@
 ---
 ---
 
+<div class="highlight">
+  <h2 class="err">Caveat: This page still describes the old architecture.</h2>
+</div>
+
 # Programming selected device
 
 ## Introduction

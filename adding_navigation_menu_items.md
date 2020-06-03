@@ -1,6 +1,10 @@
 ---
 ---
 
+<div class="highlight">
+  <h2 class="err">Caveat: This page still describes the old architecture.</h2>
+</div>
+
 # Adding navigation menu items
 
 The navigation menu is rendered by the `NavMenu` component. The component

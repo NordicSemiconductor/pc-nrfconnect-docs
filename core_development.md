@@ -3,13 +3,16 @@
 
 # How to do development of the core of nRF Connect for Desktop
 
-Developing
-[the core of nRF Connect for Desktop](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher)
-is a bit different than [developing an app](./app_development) for it.
+Developing the core of nRF Connect for Desktop is a bit different than
+[developing an app](./app_development) for it.
 
-As you have read in the
-[architecture summary about the core](./getting_started#the-core), the core
-project is responsible for multiple things. So there could be several
+As you have read in the [architecture summary](./getting_started#the-core) the
+core is split up over two projects:
+[`pc-nrfconnect-launcher`](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher)
+and
+[`pc-nrfconnect-shared`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared).
+
+These projects are responsible for multiple things. So there could be several
 motivations for working on it: Most probably you want to change the launcher or
 code that is common for the apps.
 
@@ -48,7 +51,7 @@ not exist for your platform/Node.js version, then refer to the
 [pc-ble-driver-js README](https://github.com/NordicSemiconductor/pc-ble-driver-js)
 which describes requirements for compilation.
 
-## Running from source
+## Running the launcher from source
 
 Fetch the source from
 [https://github.com/NordicSemiconductor/pc-nrfconnect-launcher](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher)
@@ -73,18 +76,62 @@ have a binary installation of nRF Connect for Desktop or
 [develop local apps](./app_development), the same apps will show up in this
 instance too.
 
-### Testing
+## Developing common code in [pc-nrfconnect-shared](https://github.com/NordicSemiconductor/pc-nrfconnect-shared)
+
+When you are developing common code in `pc-nrfconnect-shared` and you want to
+check the changes quickly in the launcher or an app the steps above are not
+sufficient, because by default the launcher will include a released version of
+`pc-nrfconnect-shared` from GitHub, not your local one. But with some additional
+effort you can achieve this by leveraging
+[`npm-link`](https://docs.npmjs.com/cli/link):
+
+1. Have both, `pc-nrfconnect-launcher` and `pc-nrfconnect-shared` checked out
+   into directories next to each other.
+2. In the directory `pc-nrfconnect-launcher` run
+```
+npm install; npm link ../pc-nrfconnect-shared
+```
+3. In the directory `pc-nrfconnect-shared` run
+```
+npm ci --prod
+```
+
+With this setup, you can make changes in `pc-nrfconnect-shared`, then recompile
+`pc-nrfconnect-launcher` (`pc-nrfconnect-shared` does not need to be compiled),
+and immediately see the effects of the changes in `pc-nrfconnect-shared`.
+Usually the best setup is again to use `npm run dev` in
+`pc-nrfconnect-launcher`, as described above in
+[“Running the launcher from source”](#running-the-launcher-from-source).
+
+If you forget to run `npm ci --prod` in `pc-nrfconnect-shared`, you may get
+errors because of conflicting package versions, especially of `react` and
+`react-redux`.
+
+### Caveat:
+
+If you later run `npm install` in the directory `pc-nrfconnect-launcher` (e.g.
+because you install additional packages), the link to `pc-nrfconnect-shared`
+often gets lost. In that case you usually have to repeat running
+`npm link ../pc-nrfconnect-shared` in the directory `pc-nrfconnect-launcher` and
+then `npm ci --prod` in the directory `pc-nrfconnect-shared`.
+
+If you later run `npm install` in the directory `pc-nrfconnect-shared` (e.g.
+because you install additional packages there), you may need to repeat running
+`npm ci --prod` in that folder.
+
+Because `npm ci --prod` does not install the development dependencies, you
+cannot run the tests successfully in `pc-nrfconnect-shared` at that moment.
+Before you want to run the tests again, execute `npm ci` and you will also have
+the development dependencies installed again.
+
+## Testing
 
 Relevant scripts for different testing needs:
 
 - `npm run lint`: Lint the source
 - `npm test`: Run the unit tests once
 - `npm run test-watch`: Run unit tests and watch for changes
-- `npm run test-e2e`: Run all end-to-end tests
-- `npm run test-e2e-offline`: Run only end-to-end tests that do not require
-  network access
-- `npm run test-e2e-online`: Run only end-to-end tests that require network
-  access
+- `npm run test-e2e`: The launcher additionally included end-to-end tests
 
 ## Installing the Electron dev tools
 
