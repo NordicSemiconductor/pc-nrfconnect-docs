@@ -67,7 +67,7 @@ Where the last part, the common code, resides changes with the new architecture:
 Now it is found in project `pc-nrfconnect-shared` (since release
 [v4.8.0](https://github.com/NordicSemiconductor/pc-nrfconnect-shared/releases/tag/v4.8.0)
 of that project) but previously it was also included in
-``pc-nrfconnect-launcher`, where now only legacy variants remain for apps that
+`pc-nrfconnect-launcher`, where now only legacy variants remain for apps that
 have not been converted to the new architecture.
 
 A bit unusual: The common code is not only provided during development and then

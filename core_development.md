@@ -81,7 +81,7 @@ instance too.
 When you are developing common code in `pc-nrfconnect-shared` and you want to
 check the changes quickly in the launcher or an app the steps above are not
 sufficient, because by default the launcher will include a released version of
-`pc-nrfconnect-shared` from GitHub, not you local one. But with some additional
+`pc-nrfconnect-shared` from GitHub, not your local one. But with some additional
 effort you can achieve this by leveraging
 [`npm-link`](https://docs.npmjs.com/cli/link):
 
@@ -112,7 +112,7 @@ errors because of conflicting package versions, especially of `react` and
 If you later run `npm install` in the directory `pc-nrfconnect-launcher` (e.g.
 because you install additional packages), the link to `pc-nrfconnect-shared`
 often gets lost. In that case you usually have to repeat running
-`link ../pc-nrfconnect-shared` in the directory `pc-nrfconnect-launcher` and
+`npm link ../pc-nrfconnect-shared` in the directory `pc-nrfconnect-launcher` and
 then `npm ci --prod` in the directory `pc-nrfconnect-shared`.
 
 If you later run `npm install` in the directory `pc-nrfconnect-shared` (e.g.
