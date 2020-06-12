@@ -11,12 +11,6 @@
 - [API reference](./api_reference)
 - [Modules](./modules)
 
-## Examples
-
-- [Adding navigation menu items](./adding_navigation_menu_items)
-- [Opening selected device](./opening_selected_device)
-- [Programming selected device](./programming_selected_device)
-
 ## Misc
 
 - [Configuration](./configuration)
