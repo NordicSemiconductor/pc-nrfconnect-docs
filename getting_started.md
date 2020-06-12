@@ -40,12 +40,12 @@ exist:
 
 Before starting, you should know the basic structure of nRF Connect for Desktop.
 
-It is currently a bit in flux, because we are transitioning to a slightly
-different architecture. The overall concept stays the same, but sometimes there
-are differences and then we will explain the difference between the old and the
-new architecture. When developing new apps, you should stick to the new
-architecture, but when working on existing apps or the core, you might need to
-be aware of the old architecture.
+It is currently a bit in flux, because we are transitioning to a different API.
+The overall concept stays the same, but sometimes there are differences and then
+we will explain the difference between the old and the new API. When developing
+new apps, you should stick to the [new API](./api_reference), but when working
+on existing apps or the core, you might need to be aware of the
+[old API](./old_api_reference).
 
 Which brings us right to the two main blocks the core and the apps:
 

@@ -8,6 +8,7 @@
 
 ## API
 
+- [API reference](./api_reference)
 - [Modules](./modules)
 - [Old API reference](./old_api_reference)
 
