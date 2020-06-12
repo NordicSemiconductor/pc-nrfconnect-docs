@@ -2,10 +2,15 @@
 ---
 
 <div class="highlight">
-  <h2 class="err">Caveat: This page still describes the old architecture.</h2>
+  <h2 class="err">Caveat</h2>
+
+  This page describes the outdated API, which apps following the old architecture
+  used when being developed for nRF Connect for Desktop. You should not use this
+  information when developing new apps. So this is only left here for when people
+  need to maintain old apps.
 </div>
 
-# API reference
+# Old API reference
 
 The API for nRF Connect apps is inspired by the extension API used by the
 [Hyper™ terminal](https://hyper.is). nRF Connect comes with a skeleton that has
