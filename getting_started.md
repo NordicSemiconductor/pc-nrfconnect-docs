@@ -19,7 +19,7 @@ functions, modules, const/let, and template strings is recommended.
 
 You should have a basic setup and little familiarity with these:
 
-- [Node.js](https://nodejs.org)
+- [Node.js](https://nodejs.org) (at least version 10)
 - [Git](https://git-scm.com/downloads)
 - An editor with good JavaScript support (e.g. VS Code, Atom, WebStorm)
 
