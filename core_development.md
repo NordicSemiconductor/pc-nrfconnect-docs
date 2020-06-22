@@ -117,7 +117,7 @@ then `npm ci --prod` in the directory `pc-nrfconnect-shared`.
 
 If you later run `npm install` in the directory `pc-nrfconnect-shared` (e.g.
 because you install additional packages there), you may need to repeat running
-`npm ci --prod` in that folder.
+`npm ci --prod` in that directory.
 
 Because `npm ci --prod` does not install the development dependencies, you
 cannot run the tests successfully in `pc-nrfconnect-shared` at that moment.
@@ -132,6 +132,26 @@ Relevant scripts for different testing needs:
 - `npm test`: Run the unit tests once
 - `npm run test-watch`: Run unit tests and watch for changes
 - `npm run test-e2e`: The launcher additionally included end-to-end tests
+
+### Using ESLint in an IDE
+
+As described
+[in the documentation on app development, you usually have to configure your IDE to find the ESLint configuration](./app_development#using-eslint-in-an-ide).
+This is the same when developing `pc-nrfconnect-launcher` but different when
+developing `pc-nrfconnect-shared`. In the latter case and for example for VS
+Code you should put this into your `settings.json`:
+
+```json
+"eslint.options": {
+    "configFile": "config/eslintrc.json"
+}
+```
+
+You certainly should put this into the workspace settings not in the user
+settings, as described in
+[the VS Code documentation on settings](https://code.visualstudio.com/docs/getstarted/settings),
+since this setting is only correct for `pc-nrfconnect-shared` but not for our
+other projects.
 
 ## Installing the Electron dev tools
 
