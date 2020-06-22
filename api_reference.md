@@ -1,469 +1,194 @@
 ---
 ---
 
-<div class="highlight">
-  <h2 class="err">Caveat: This page still describes the old architecture.</h2>
-</div>
-
 # API reference
 
-The API for nRF Connect apps is inspired by the extension API used by the
-[Hyper™ terminal](https://hyper.is). nRF Connect comes with a skeleton that has
-standard UI components for listing serial ports, navigation menus, logging, etc.
-Apps can decorate the standard components, create new components, and use
-[built-in libraries](./modules) in order to create end-user tools.
+## Minimal app
 
-nRF Connect apps are universal Node.js modules that export one or more of the
-properties or methods below. See the
-[pc-nrfconnect-boilerplate](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate)
-for a complete example.
+When developing an app for nRF Connect for Desktop, the minimal requirements are
+that you create a JavaScript package with these two things:
 
-## Properties
+1. A
+   [`package.json` with the needed properties](./configuration#properties-in-packagejson).
+2. The entry point of your package must expose a React component as default
+   export.
 
-<table>
-  <tbody>
-    <tr>
-      <th>Property</th>
-      <th>Description and sub-properties</th>
-    </tr>
-    <tr>
-      <td>
-        <code>config</code><sub>&nbsp;(&gt;=2.4)</sub><br />
-      </td>
-      <td>
-        <p>Configures which device types to show in the device selector, and how they should be set up (programmed) when selected.</p>
-        <p>Sub-properties:</p>
-        <table>
-          <tbody>
-            <tr>
-              <td><code>selectorTraits</code></td>
-              <td>Configures which device types to show in the device selector. This should be an object on the form <code>{ jlink: true, serialport: true, ... }</code>. The format is described in the <a href="https://github.com/NordicSemiconductor/nrf-device-lister-js">nrf-device-lister-js</a> documentation.</td>
-            </tr>
-            <tr>
-              <td><code>deviceSetup</code></td>
-              <td>Configures which firmware to program when a device is selected in the device selector. This should be an object on the form <code>{ dfu: { ... }, jprog: { ... } }</code> The format is described in the <a href="https://github.com/NordicSemiconductor/nrf-device-setup-js">nrf-device-setup-js</a> documentation.</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
+This alone would be sufficient for the launcher to display and start your app.
 
-## Methods
+## Normal app
 
-<table>
-  <tbody>
-    <tr>
-      <th>Method</th>
-      <th>Description and parameters</th>
-    </tr>
-    <tr>
-      <td>
-        <code>onInit</code>
-      </td>
-      <td>
-        <p>Invoked right before the app is rendered for the first time.</p>
-        <p>Parameters:</p>
-        <table>
-          <tbody>
-            <tr>
-              <td><code>dispatch</code></td>
-              <td>The Redux dispatch function, which may be invoked to dispatch actions.</td>
-            </tr>
-            <tr>
-              <td><code>getState</code></td>
-              <td>The Redux getState function, which may be invoked to read the current app state.</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>onReady</code>
-      </td>
-      <td>
-        <p>Invoked right after the app has been rendered for the first time.</p>
-        <p>Parameters:</p>
-        <table>
-          <tbody>
-            <tr>
-              <td><code>dispatch</code></td>
-              <td>The Redux dispatch function, which may be invoked to dispatch actions.</td>
-            </tr>
-            <tr>
-              <td><code>getState</code></td>
-              <td>The Redux getState function, which may be invoked to read the current app state.</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>decorateDeviceSelector</code><sub>&nbsp;(>=2.4)</sub><br />
-        <code><del>decorateFirmwareDialog</del></code><sub>&nbsp;(deprecated)</sub><br />
-        <code>decorateLogo</code><br />
-        <code>decorateLogEntry</code><br />
-        <code>decorateLogHeader</code><br />
-        <code>decorateLogHeaderButton</code><br />
-        <code>decorateLogViewer</code><br />
-        <code>decorateMainMenu</code><br />
-        <code>decorateMainView</code><br />
-        <code>decorateNavBar</code><br />
-        <code>decorateNavMenu</code><br />
-        <code><del>decorateSerialPortSelector</del></code><sub>&nbsp;(deprecated)</sub><br />
-        <code>decorateSidePanel</code>
-      </td>
-      <td>
-        <p>Invoked with the component that is to be decorated. Must return a Higher-Order Component (HOC). See <a href="#component-decoration">examples</a>.</p>
-        <p>Parameters:</p>
-        <table>
-          <tbody>
-            <tr>
-              <td><code>Component</code></td>
-              <td>The component to decorate.</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>mapDeviceSelectorDispatch</code><sub>&nbsp;(>=2.4)</sub><br />
-        <code><del>mapFirmwareDialogDispatch</del></code><sub>&nbsp;(deprecated)</sub><br />
-        <code>mapLogHeaderDispatch</code><br />
-        <code>mapLogViewerDispatch</code><br />
-        <code>mapMainMenuDispatch</code><br />
-        <code>mapMainViewDispatch</code><br />
-        <code>mapNavMenuDispatch</code><br />
-        <code><del>mapSerialPortSelectorDispatch</del></code><sub>&nbsp;(deprecated)</sub><br />
-        <code>mapSidePanelDispatch</code><br />
-      </td>
-      <td>
-        <p>Allows overriding props that are passed to the components. Receives <code>dispatch</code> and the original <code>props</code>, and must return a new map of props. See <a href="#dispatching-actions">examples</a>.</p>
-        <p>Parameters:</p>
-        <table>
-          <tbody>
-            <tr>
-              <td><code>dispatch</code></td>
-              <td>The Redux dispatch function.</td>
-            </tr>
-            <tr>
-              <td><code>props</code></td>
-              <td>The original props that were passed to the component.</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>mapDeviceSelectorState</code><sub>&nbsp;(>=2.4)</sub><br />
-        <code><del>mapFirmwareDialogState</del></code><sub>&nbsp;(deprecated)</sub><br />
-        <code>mapLogHeaderState</code><br />
-        <code>mapLogViewerState</code><br />
-        <code>mapMainMenuState</code><br />
-        <code>mapMainViewState</code><br />
-        <code>mapNavMenuState</code><br />
-        <code><del>mapSerialPortSelectorState</del></code><sub>&nbsp;(deprecated)</sub><br />
-        <code>mapSidePanelState</code><br />
-      </td>
-      <td>
-        <p>Allows overriding props that are passed to the components. Receives the <code>state</code> object and the original <code>props</code>, and must return a new map of props. See <a href="#passing-information-from-state-to-components">examples</a>.</p>
-        <p>Parameters:</p>
-        <table>
-          <tbody>
-            <tr>
-              <td><code>state</code></td>
-              <td>The Redux state object.</td>
-            </tr>
-            <tr>
-              <td><code>props</code></td>
-              <td>The original props that were passed to the component.</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>middleware</code><br />
-      </td>
-      <td>
-        <p>A custom <a href="http://redux.js.org/docs/advanced/Middleware.html">Redux middleware</a> that can intercept any action. The middleware is invoked after an action has been dispatched, but before it reaches the reducers.</p>
-        <p>This is useful e.g. when the app wants to perform some asynchronous operation when an action is dispatched by core. Refer to the <a href="https://github.com/NordicSemiconductor/pc-nrfconnect-launcher/tree/master/src/legacy/app/actions">core actions</a> to see which actions may be intercepted. See <a href="#intercepting-actions-with-middleware">examples</a>.</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>reduceApp</code><br />
-      </td>
-      <td>
-        <p>Invoked when an action is dispatched. This is where the app can keep its own custom state. See <a href="#adding-information-to-state">examples</a>.</p>
-        <p>Parameters:</p>
-        <table>
-          <tbody>
-            <tr>
-              <td><code>state</code></td>
-              <td>The part of the state that the reducer is concerned with.</td>
-            </tr>
-            <tr>
-              <td><code>action</code></td>
-              <td>The action that was dispatched.</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
+While you could start with the mentioned minimal app and build the rest from
+scratch, it will be easier to use the prepared components from
+`pc-nrfconnect-shared` as it is demonstrated in
+[`pc-nrfconnect-boilerplate`](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate)
+and
+[`pc-nrfconnect-rssi`](https://github.com/NordicSemiconductor/pc-nrfconnect-rssi).
 
-## Example usage
+In the following sections the main building blocks from `pc-nrfconnect-shared`
+are explained:
 
-### Component decoration
+### Component: [`App`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared/blob/master/src/App/App.jsx)
 
-Decoration allows the app to render custom components or override props that are
-passed to components. Also, if a component is not relevant for the app, it can
-simply choose not to render it.
+[Example use in `pc-nrfconnect-rssi`.](https://github.com/NordicSemiconductor/pc-nrfconnect-rssi/blob/b0216e3d0e50eec1b9149194564f47700e5b43c3/src/index.jsx#L46-L51)
 
-#### Rendering a custom component
+Most apps will use the `App` component to create their main export. Visible to
+the user it provides the general app look and feel:
 
-Components can be decorated by implementing the `decorate<ComponentName>`
-methods. E.g. to render a custom navigation menu, the `decorateNavMenu` method
-can be implemented.
+- [Device selector](#component-deviceselector) on the top left
+- Hidable sidebar on the left side
+- Multiple panes, including an “About” pane, which can be switched in the
+  navigation bar at the top and appear in the main area below it
+- Hidable log viewer below the main area
 
-Using a
-[functional component](https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components):
+For developer it provides a scaffolding to place their own components and a
+prepared Redux store, which includes state and actions for the shared components
+(note that you cannot easily use the Redux store when creating the `App`
+element, as the store will be created and provided by the `App` component. But
+you can use it about everywhere else, usually through React Redux using either
+[hooks](https://react-redux.js.org/api/hooks) or
+[the `connect` function](https://react-redux.js.org/api/connect).)
 
-```
-export function decorateNavMenu() {
-    return props => (
-        <CustomNavMenu {...props} />
-    );
-}
-```
+#### Properties
 
-The same thing can be done using a class component, but it is a little more
-verbose:
+- `appReducer` (optional): A reducer function (`(state, action) => newState`).
+  If your app wants to maintain a slice of Redux state itself, this is the root
+  reducer to handle that. It will handle the slice of state under the name
+  `app`.
 
-```
-export function decorateNavMenu() {
-    return class extends React.Component {
-        render() {
-            return (
-                <CustomNavMenu {...this.props} />
-            );
-        }
-    };
-}
-```
+- `deviceSelect`: The React element that appears in the upper left corner of the
+  app. Apps usually utilise the component
+  [`DeviceSelector`](#component-deviceselector) for this, as described below.
 
-#### Overriding props that are passed to components
+- `sidePanel`: The React element that appears in the hidable side panel on the
+  left side. There is no shared component for this, as different side panel do
+  not have enough in common.
 
-```
-export function decorateNavMenu(NavMenu) {
-    return props => (
-        <NavMenu
-            {...props}
-            menuItems={[
-                { id: 0, text: 'Search', iconClass: 'icon-search' },
-            ]}
-        />
-    );
-}
-```
+- `panes`: Describes the panes that users can see in the main view. Each has a
+  clickable name in the navigation at the top and when clicked, the pane is
+  displayed in the main view of the app.
 
-#### Removing a component
+  The `panes` property is an array containing two element arrays: Each of the
+  two element arrays has the name of the pane as the first element (which is
+  displayed in the navigation bar) and the React component as the second
+  element. E.g.
+  `[['Connection Map', ConnectionMap], ['Server Setup', ServerSetup]]`.
 
-```
-export function decorateNavMenu() {
-    return () => <div />;
-}
-```
+### Component: [`DeviceSelector`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared/blob/master/src/Device/DeviceSelector/DeviceSelector.jsx)
 
-### Dispatching actions
+[Example use in `pc-nrfconnect-rssi`.](https://github.com/NordicSemiconductor/pc-nrfconnect-rssi/blob/b0216e3d0e50eec1b9149194564f47700e5b43c3/src/RssiDeviceSelect.jsx)
 
-When the user clicks a button or types some text inside a component, the app
-will typically want to update information in state. This is done by dispatching
-actions. The actions are then processed by the reducers, which is responsible
-for setting information in state.
+Most apps want to present a device selector to the users and this component is
+the easiest way to achieve that. Configure it appropriately for the app and then
+pass it to the `deviceSelect` property of the [`App` component](#component-app).
 
-To dispatch an action when a button is clicked, the app should create a function
-that dispatches the action, and pass that function to the component as a prop.
-Apps can do this by implementing the `map<ComponentName>Dispatch` methods.
+#### Properties
 
-For example, if an action should be dispatched when clicking a button in the
-`SidePanel`, the app can implement `mapSidePanelDispatch`:
+- `deviceListing`: Configures which device types to show in the device selector,
+  e.g. whether to show only J-Link devices or also those just connected through
+  a normal serial port. The object shape is the same as the
+  [object passed to the constructor of `nrf-device-lister-js`](https://github.com/NordicSemiconductor/nrf-device-lister-js#usage-as-a-library).
 
-```
-export function mapSidePanelDispatch(dispatch, props) {
-    return {
-        ...props,
-        onButtonClicked: () => dispatch({
-            type: 'SIDE_PANEL_BUTTON_CLICKED'
-        }),
-    };
-}
-```
+- `deviceSetup` (optional): If your app requires devices to be set up with a
+  certain firmware, use this property to specify how they are to be programmed.
+  The
+  [format of the configuration is describes in the project `nrf-device-setup-js`](https://github.com/NordicSemiconductor/nrf-device-setup-js#configuration).
 
-The `SidePanel` can then assign this function to the button's `onClick`
-property:
+  Note that the `nrf-device-setup-js` documentation also mentions
+  `promiseConfirm` and `promiseChoice`, but apps usually do not have to provide
+  these, as callbacks that show appropriate dialogs to the user are already
+  implemented by `pc-nrfconnect-shared`.
 
-```
-export function decorateSidePanel(SidePanel) {
-    return props => (
-        <SidePanel>
-            <button onClick={props.onButtonClicked}>Button</button>
-        </SidePanel>
-    );
-}
-```
+  When configuring a device setup, you will usually provide a firmware file with
+  your app. The easiest way to access that file is to use the function
+  [`getAppFile`](#function-getappfile) as can also be
+  [seen in `pc-nrfconnect-rssi`](https://github.com/NordicSemiconductor/pc-nrfconnect-rssi/blob/b0216e3d0e50eec1b9149194564f47700e5b43c3/src/RssiDeviceSelect.jsx#L50).
 
-Instead of passing an action object to `dispatch`, the app can also pass a
-function. This is useful when the app needs to perform an asynchronous
-operation. Refer to the [redux-thunk](https://github.com/gaearon/redux-thunk)
-documentation to see how this is done.
+- `onDeviceSelected` (optional): This callback is invoked when a device is
+  selected by the user. The callback receives the selected device as a
+  parameter.
 
-### Passing information from state to components
+- `releaseCurrentDevice` (optional): This callback is invoked before a device is
+  about to be programmed. If no `deviceSetup` is provided, this callback will
+  not be invoked.
 
-The nRF Connect core keeps its state under `state.core`. Refer to the
-[coreReducer](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher/blob/master/src/legacy/app/reducers/coreReducer.js)
-to see what information may be found there. The app can maintain its own state
-under `state.app` by implementing the `reduceApp` method.
+- `onDeviceIsReady` (optional): This callback is invoked when programming a
+  device is finished. The callback receives the programmed device as a
+  parameter. If no `deviceSetup` is provided, this callback will not be invoked.
 
-For example, the selected navigation menu item is kept in
-`state.core.navMenu.selectedItemId`. To pass it to the `MainView`, implement
-`mapMainViewState` as shown below:
+- `onDeviceDeselected` (optional): This callback is invoked when a selected
+  device is again deselected. This may be caused by the user deselecting the
+  device but also automatically if programming a device failed.
 
-```
-export function mapMainViewState(state, props) {
-    return {
-        ...props,
-        selectedMenuItemId: state.core.navMenu.selectedItemId,
-    };
-}
-```
+### Logging: [`logger`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared/blob/master/src/logging/index.js)
 
-The `MainView` will now receive a `selectedMenuItemId` prop:
+[Example use in `pc-nrfconnect-rssi`.](https://github.com/NordicSemiconductor/pc-nrfconnect-rssi/blob/b0216e3d0e50eec1b9149194564f47700e5b43c3/src/actions.js#L109)
 
-```
-export function decorateMainView(MainView) {
-    return props => (
-        <MainView>
-            <p>Selected menu item is { props.selectedMenuItemId }</p>
-        </MainView>
-    );
-}
-```
+A logger using [winston](https://github.com/winstonjs/winston), which apps can
+use to add log messages to the log below the main view.
 
-### Intercepting actions with middleware
+### Component: [`Slider`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared/blob/master/src/Slider/Slider.jsx)
 
-By implementing a
-[Redux middleware](http://redux.js.org/docs/advanced/Middleware.html), apps can
-intercept or act upon actions before they are received by the reducers. This is
-useful for changing or expanding on the default nRF Connect behavior. Refer to
-the
-[core actions](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher/tree/master/src/legacy/app/actions)
-to see the list of actions that may pass through the middleware.
+[Example use in `pc-nrfconnect-rssi`.](https://github.com/NordicSemiconductor/pc-nrfconnect-rssi/blob/b0216e3d0e50eec1b9149194564f47700e5b43c3/src/SidePanel/Delay.jsx#L72-L78)
 
-A common scenario is that the app should open serial port when a port has been
-selected, and close the port when is has been deselected. This can be done using
-middleware:
+A slider component, especially useful for configurations in the side panel. This
+slider supports a single or also multiple values, which is especially helpful if
+users can select a range.
 
-```
-import SerialPort from 'serialport';
-import { logger } from 'nrfconnect/core';
+#### Properties
 
-const options = {
-    baudRate: 1000000,
-};
+- `id` (optional): Specify the id if you need to refer it from the outside, e.g.
+  from a `<label>` using the `for` attribute.
+- `values`: An array with the current values of the slider. If the slider has
+  just a single handle to select a single value, then make this an array with a
+  single element.
+- `range`: An object with two properties: `min` and `max`. In case you specify
+  multiple values, this range is valid for all of them.
+- `onChange`: An array of callback functions, one for every value. This array
+  must have the same length as `values`. When a handle is dragged by the user,
+  the callback function corresponding to that value is called with the new
+  value. The callback must take care that the `value` is updated, so that the
+  change is also visible in the UI. This callback is called multiple times if
+  users keep on dragging the handle.
+- `onChangeComplete` (optional): A single callback function that is called, when
+  the user releases a handle. Use this, if you want to trigger an additional
+  action when the user has selected a final value.
 
-let port;
+### Component: [`ConfirmationDialog`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared/blob/master/src/Dialog/ConfirmationDialog.jsx)
 
-// Show serial ports in the device selector
-export const config = {
-    selectorTraits: {
-        serialport: true,
-    },
-};
+[Example use in `pc-nrfconnect-launcher`.](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher/blob/5df8f17694fd9972bbb6eeb3893853ad6a9278db/src/launcher/components/ConfirmRemoveSourceDialog.jsx#L47-L55)
 
-export function middleware(store) {
-    return next => action => {
-        if (action.type === 'DEVICE_SELECTED') {
-            const device = action.device;
-            port = new SerialPort(device.serialport.path, options, err => {
-                if (err) {
-                    logger.error(`Failed to open port: ${err.message}`);
-                } else {
-                    logger.info('Port is open');
-                }
-            });
-        } else if (action.type === 'DEVICE_DESELECTED') {
-            port.close(() => {
-                logger.info('Port is closed');
-            });
-        }
-        next(action);
-    };
-}
-```
+A component to show a simple confirmation dialog.
 
-Note that the final line of the middleware calls `next(action)`. This passes the
-action on to the next middleware in the chain, and finally the action is
-received by the reducers. Also note that we can dispatch new actions from
-middleware using `store.dispatch()`, and there is also a `store.getState()`
-function for reading information from state.
+#### Properties
 
-### Adding information to state
+- `isVisible`: A boolean, whether the dialog should be visible at the moment.
+- `title`: The title of the dialog, defaults to “Confirm”.
+- `children` (optional): The content of the dialog.
+- `text` (optional): Alternatively to the `children` you can just specify a
+  simple text which will appear as the content of the dialog.
+- `onOk`: Invoked when users confirm the dialog.
+- `onCancel`: Invoked when users cancel the dialog.
+- `okButtonText` (optional): Defaults to “OK”.
+- `cancelButtonText` (optional): Defaults to “Cancel”.
+- `isInProgress` (optional): A boolean, whether there is some processing going
+  on at the moment. Being in progress shows a spinner and disables the buttons.
+- `isOkButtonEnabled` (optional): A boolean, whether (besides being in progress)
+  the ok button should be disabled for another, external reason.
 
-The app can maintain its own state under `state.app` by implementing the
-`reduceApp` method. This can either be a single reducer function, or multiple
-nested reducers. All actions that are dispatched will be received by the
-reducer(s).
+### Function: [`getAppFile`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared/blob/master/src/appDirs.js#L67)
 
-#### Single reducer function
+[Example use in `pc-nrfconnect-rssi`.](https://github.com/NordicSemiconductor/pc-nrfconnect-rssi/blob/b0216e3d0e50eec1b9149194564f47700e5b43c3/src/RssiDeviceSelect.jsx#L50)
 
-```
-const initialState = {
-    clickCount: 0,
-};
+Use this function if the app needs to access a file bundled with it. Remember to
+include these files in
+[the `files` configuration of the app](./configuration#properties-in-packagejson).
 
-export function reduceApp(state = initialState, action) {
-    switch (action.type) {
-        case 'SIDE_PANEL_BUTTON_CLICKED':
-            return {
-                ...state,
-                clickCount: state.clickCount + 1,
-            };
-        default:
-            return state;
-    }
-}
-```
+### Display an error message
 
-#### Multiple reducer functions
+If you want to display an error message in an app, you can dispatch the action
+from the action creator `showDialog` from the `ErrorDialogActions`:
+[Example use in `pc-nrfconnect-rssi`.](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher/blob/5d4eb36/src/launcher/actions/appsActions.js#L378)
 
-Multiple reducer functions can be added using the Redux
-[combineReducers](http://redux.js.org/docs/api/combineReducers.html) function:
-
-```
-import { combineReducers } from 'redux';
-
-const initialFooState = {};
-const initialBarState = {};
-
-function foo(state = initialFooState, action) {
-    /* reducer implementation */
-}
-
-function bar(state = initialBarState, action) {
-    /* reducer implementation */
-}
-
-export const reduceApp = combineReducers({
-    foo,
-    bar,
-});
-```
+You can also specify a second parameter, which lists possible error resolutions,
+from which the users may choose one when being displayed the error:
+[Example use in `pc-nrfconnect-rssi`.](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher/blob/1f5ce26c95cae654ea8e0db60f47e696dca047f6/src/launcher/actions/autoUpdateActions.js#L205-L218)
