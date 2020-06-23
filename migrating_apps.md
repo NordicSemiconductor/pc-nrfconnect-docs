@@ -77,14 +77,14 @@ some of the essential steps that need to be done as described below.
      [the `connect` function](https://react-redux.js.org/api/connect).
 
 4. Search for all remaining places where `nrfconnect/core` is imported and
-   replace it with according imports of `nrfconnect-shared`. This is often just
+   replace it with according imports of `pc-nrfconnect-shared`. This is often just
    a simple replacement, e.g. [the logger](api_reference#logging-logger) is now
    exported from there.
 
 5. If your app accessed the state of the core before: It is not supported
    anymore to depend on a certain shape of the state. Instead use selectors (if
    there is not an appropriate selector, then ask for one and we will introduce
-   it in `nrfconnect-shared`).
+   it in `pc-nrfconnect-shared`).
 
 ## Recommended, additional things to do when upgrading an app
 
