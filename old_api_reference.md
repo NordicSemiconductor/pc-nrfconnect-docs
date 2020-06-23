@@ -7,7 +7,8 @@
   This page describes the outdated API, which apps following the old architecture
   used when being developed for nRF Connect for Desktop. You should not use this
   information when developing new apps. So this is only left here for when people
-  need to maintain old apps.
+  need to maintain old apps. <a href="migrating_apps">Migrate old apps to use the
+  new API</a> as soon as possible.
 </div>
 
 # Old API reference

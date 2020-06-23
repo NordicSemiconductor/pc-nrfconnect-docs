@@ -45,9 +45,10 @@ The overall concept stays the same, but sometimes there are differences and then
 we will explain the difference between the old and the new API. When developing
 new apps, you should stick to the [new API](./api_reference), but when working
 on existing apps or the core, you might need to be aware of the
-[old API](./old_api_reference).
+[old API](./old_api_reference). There is also a
+[guide how to migrate old apps to the new API](migrating_apps).
 
-Which brings us right to the two main blocks the core and the apps:
+Which brings us right to the two main blocks, the core and the apps:
 
 ### The core
 
