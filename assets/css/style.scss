@@ -5,7 +5,7 @@ $nordic-blue: #00a9ce;
 
 $text-blue: $nordic-blue;
 
-@import '{{ site.theme }}';
+@import 'jekyll-theme-primer';
 
 body {
   padding: 50px;
