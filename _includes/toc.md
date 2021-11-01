@@ -10,12 +10,10 @@
 
 - [API reference](./api_reference)
 - [Modules](./modules)
-- [Old API reference](./old_api_reference)
 
 ## Misc
 
 - [Configuration](./configuration)
 - [Changelogs](./changelogs)
 - [Installing local apps](./local_app_installation)
-- [Migrating apps](./migrating_apps)
 - [Contributing](./contributing)
