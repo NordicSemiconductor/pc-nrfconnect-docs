@@ -11,15 +11,13 @@ nRF Connect is based on [Electron](https://electron.atom.io/),
 [React](https://facebook.github.io/react/), and [Redux](http://redux.js.org/).
 Some familiarity with React and Redux is recommended in order to create apps.
 You should at least understand concepts like JSX, props, actions, reducers, and
-immutable state. Also, familiarity with
-[ECMAScript 2015](https://babeljs.io/learn-es2015/) syntax such as arrow
-functions, modules, const/let, and template strings is recommended.
+immutable state.
 
 ### Install development tools
 
 You should have a basic setup and little familiarity with these:
 
-- [Node.js](https://nodejs.org) (at least version 10)
+- [Node.js](https://nodejs.org) (at least version 14)
 - [Git](https://git-scm.com/downloads)
 - An editor with good JavaScript support (e.g. VS Code, Atom, WebStorm)
 
@@ -38,43 +36,28 @@ exist:
 
 ## Architecture of nRF Connect for Desktop
 
-Before starting, you should know the basic structure of nRF Connect for Desktop.
-
-It is currently a bit in flux, because we are transitioning to a different API.
-The overall concept stays the same, but sometimes there are differences and then
-we will explain the difference between the old and the new API. When developing
-new apps, you should stick to the [new API](./api_reference), but when working
-on existing apps or the core, you might need to be aware of the
-[old API](./old_api_reference). There is also a
-[guide how to migrate old apps to the new API](migrating_apps).
-
-Which brings us right to the two main blocks, the core and the apps:
+Before starting, you should know the basic structure of nRF Connect for Desktop
+with its two main blocks, the core and the apps:
 
 ### The core
 
-The core resides in the two projects
+The core resides in the two projects:
+
 [`pc-nrfconnect-launcher`](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher)
-and
-[`pc-nrfconnect-shared`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared).
-It provides multiple things:
+contains
 
 - The launcher from which the apps are installed and launched
 - The [Electron shell](https://electronjs.org) in which the launcher and the
   apps run
-- The common code for all apps: UI elements and code to give lower level access
-  hardware
 
-Where the last part, the common code, resides changes with the new architecture:
-Now it is found in project `pc-nrfconnect-shared` (since release
-[v4.8.0](https://github.com/NordicSemiconductor/pc-nrfconnect-shared/releases/tag/v4.8.0)
-of that project) but previously it was also included in
-`pc-nrfconnect-launcher`, where now only legacy variants remain for apps that
-have not been converted to the new architecture.
+[`pc-nrfconnect-shared`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared)
+contains the common code for all apps: UI elements and code to give lower level
+access hardware.
 
 A bit unusual: The common code is not only provided during development and then
-compiled into the apps. Instead the launcher also provides these libraries
-during runtime, so that the individual apps do not have to include the shared
-code themselves.
+bundled into the apps. Instead the launcher also provides these libraries during
+runtime, so that the individual apps do not have to include the shared code
+themselves.
 
 Providing the common libraries through the launcher at runtime has two
 advantages for the apps: The apps can be a lot smaller and they are usually
@@ -91,9 +74,9 @@ run them.
 
 ### The apps
 
-[Nordic Semiconductors provides several apps](./supported_apps) to work with the
-development kits or dongles from Nordic Semiconductor. They are all installed
-and run through the launcher provided by the core.
+Nordic Semiconductors provides several apps to work with the development kits or
+dongles from Nordic Semiconductor. They are all installed and run through the
+launcher provided by the core.
 
 Besides using the officially distributed apps, you are also able to run your own
 apps. This is described later, when we describe how to develop your own apps.
@@ -105,18 +88,16 @@ for Desktop:
 
 - Several projects are brought in as dependencies by the core which provide
   access to the hardware:
-  - [`nrf-device-setup-js`](https://github.com/NordicSemiconductor/nrf-device-setup-js)
-    to setup the devices with firmwares appropriate for an app.
-  - [`nrf-device-lister-js`](https://github.com/NordicSemiconductor/nrf-device-lister-js)
-    to list devices.
-  - [`pc-nrfjprog-js`](https://github.com/NordicSemiconductor/pc-nrfjprog-js) to
-    access
-    [the `nrfjprog` DLL](https://infocenter.nordicsemi.com/topic/ug_nrf5x_cltools/UG/cltools/nrf5x_nrfjprogdll.html).
+  - [`nrf-device-lib-js`](https://github.com/NordicPlayground/nrf-device-lib-js)
+    with JS binding for
+    [`nrf-device-lib`](https://github.com/NordicPlayground/nrf-device-lib) to
+    access the actual devices.
   - [`pc-ble-driver-js`](https://github.com/NordicSemiconductor/pc-ble-driver-js)
-    to access
-    [the `pc-ble-driver` library](https://github.com/NordicSemiconductor/pc-ble-driver).
+    with JS binding for the
+    [`pc-ble-driver`](https://github.com/NordicSemiconductor/pc-ble-driver)
+    library.
 - [`pc-nrfconnect-boilerplate`](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate)
-  is a very minimal app, which is not useful on it's own, but may be used as a
+  is a very minimal app, which is not useful on its own, but may be used as a
   template to start new apps.
 - [`pc-nrfconnect-docs`](https://github.com/NordicSemiconductor/pc-nrfconnect-docs)
   contains these pages to describe how to develop nRF Connect for Desktop.

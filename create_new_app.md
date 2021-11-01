@@ -47,6 +47,5 @@ You now have everything set up for
 change the implementation in `index.jsx` to adjust the behavior of the app.
 
 Read the further documentation beginning with the
-[API reference](./api_reference) and
-[source code of the official apps](./supported_apps) to get a more thorough
-understanding of how apps work.
+[API reference](./api_reference) and source code of the official apps to get a
+more thorough understanding of how apps work.

@@ -82,39 +82,9 @@ configuration ignores these by adding them as
 available at runtime. The same is automatically done for any `dependencies` from
 package.json.
 
-### Public path and static resources
-
-The apps can import static resources such as images, which is bundled by
-webpack. For this to work, the app needs to set `__webpack_public_path__` at
-runtime, before importing static resources. This should be done in a separate
-file, e.g. `setup.js` that is imported before anything else in `index.jsx`:
-
-```
-// setup.js:
-
-import path from 'path';
-import core from 'nrfconnect/core';
-
-__webpack_public_path__ = path.join(core.getAppDir(), 'dist/');
-```
-
-```
-// index.jsx:
-
-import './setup';
-...
-```
-
-When this is configured, React components can import and render images, e.g:
-
-```
-import image from './resources/image.png';
-
-const MyComponent = () => (
-    <img src={image} alt='My image' />
-);
-```
-
 ## Release notes
 
-All official apps should have a file [`Changelog.md`](./changelogs). When running `npm run nordic-publish` it is automatically uploaded to `developer.nordicsemi.com` and the users see it in the launcher as release notes of the app.
+All official apps should have a file [`Changelog.md`](./changelogs). When
+running `npm run nordic-publish` it is automatically uploaded to
+`developer.nordicsemi.com` and the users see it in the launcher as release notes
+of the app.
