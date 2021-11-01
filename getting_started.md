@@ -11,15 +11,13 @@ nRF Connect is based on [Electron](https://electron.atom.io/),
 [React](https://facebook.github.io/react/), and [Redux](http://redux.js.org/).
 Some familiarity with React and Redux is recommended in order to create apps.
 You should at least understand concepts like JSX, props, actions, reducers, and
-immutable state. Also, familiarity with
-[ECMAScript 2015](https://babeljs.io/learn-es2015/) syntax such as arrow
-functions, modules, const/let, and template strings is recommended.
+immutable state.
 
 ### Install development tools
 
 You should have a basic setup and little familiarity with these:
 
-- [Node.js](https://nodejs.org) (at least version 10)
+- [Node.js](https://nodejs.org) (at least version 14)
 - [Git](https://git-scm.com/downloads)
 - An editor with good JavaScript support (e.g. VS Code, Atom, WebStorm)
 
