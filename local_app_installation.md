@@ -3,7 +3,7 @@
 
 # Installing local apps
 
-When you start a freshly installed nRF Connect for Desktop, it shows a list of [all apps officially supported by Nordic Semiconductors](./supported_apps). But if developers create new apps or new versions, they can also [create a developer bundle of an app](./app_development#distribute-development-versions) consisting of a file like `pc-nrfconnect-boilerplate-0.0.1.tgz` which users then can install manually:
+When you start a freshly installed nRF Connect for Desktop, it shows a list of all apps officially supported by Nordic Semiconductors. But if developers create new apps or new versions, they can also [create a developer bundle of an app](./app_development#distribute-development-versions) consisting of a file like `pc-nrfconnect-boilerplate-0.0.1.tgz` which users then can install manually:
 
 1. Copy the file to `%USERPROFILE%\.nrfconnect-apps\local` (Windows) or `$HOME/.nrfconnect-apps/local` (Linux/macOS).
 2. Restart nRF Connect for Desktop. The app should now appear in the apps list.

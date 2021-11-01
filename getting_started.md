@@ -89,7 +89,7 @@ run them.
 
 ### The apps
 
-[Nordic Semiconductors provides several apps](./supported_apps) to work with the
+Nordic Semiconductors provides several apps to work with the
 development kits or dongles from Nordic Semiconductor. They are all installed
 and run through the launcher provided by the core.
 

@@ -16,7 +16,6 @@
 
 - [Configuration](./configuration)
 - [Changelogs](./changelogs)
-- [Supported apps](./supported_apps)
 - [Installing local apps](./local_app_installation)
 - [Migrating apps](./migrating_apps)
 - [Contributing](./contributing)
