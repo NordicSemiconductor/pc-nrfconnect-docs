@@ -9,7 +9,6 @@
 ## API
 
 - [API reference](./api_reference)
-- [Modules](./modules)
 
 ## Misc
 
