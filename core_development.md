@@ -85,6 +85,8 @@ sufficient, because by default the apps will include a released version of
 effort you can achieve this by leveraging
 [`npm-link`](https://docs.npmjs.com/cli/link).
 
+**Note**: These steps currently only work with versions of npm < 7. This is due to [a change in the behaviour of `npm link`](https://github.com/npm/cli/issues/2339) in later versions.
+
 1. Copy the absolute path to the application you wish to use with the local copy of `pc-nrfconnect-shared` (e.g. `/home/ola/.nrf-connect/local/pc-nrfconnect-programmer`)
 2. In `pc-nrfconnect-shared`, locate the `packageJson.ts` file and replace the line
 
