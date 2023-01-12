@@ -187,8 +187,8 @@ include these files in
 
 If you want to display an error message in an app, you can dispatch the action
 from the action creator `showDialog` from the `ErrorDialogActions`:
-[Example use in `pc-nrfconnect-rssi`.](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher/blob/5d4eb36/src/launcher/actions/appsActions.js#L378)
+[Example use in `pc-nrfconnect-launcher`.](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher/blob/5d4eb36/src/launcher/actions/appsActions.js#L378)
 
 You can also specify a second parameter, which lists possible error resolutions,
 from which the users may choose one when being displayed the error:
-[Example use in `pc-nrfconnect-rssi`.](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher/blob/1f5ce26c95cae654ea8e0db60f47e696dca047f6/src/launcher/actions/autoUpdateActions.js#L205-L218)
+[Example use in `pc-nrfconnect-launcher`.](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher/blob/1f5ce26c95cae654ea8e0db60f47e696dca047f6/src/launcher/actions/autoUpdateActions.js#L205-L218)
