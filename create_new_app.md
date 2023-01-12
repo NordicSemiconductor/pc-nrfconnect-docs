@@ -35,6 +35,8 @@ are met.
 
     - `name`
     - `displayName`
+    - `description`
+    - `homepage`
     - `version`
     - `author`
     - `license`
