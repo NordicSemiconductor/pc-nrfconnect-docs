@@ -28,12 +28,6 @@ Connect for Desktop installed as a binary. If you do not have it installed
 already, just follow the
 [instructions on how to install nRF Connect for Desktop](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher#using-nrf-connect-for-desktop).
 
-Also create the `~/.nrfconnect-apps/local` directory if it does not already
-exist:
-
-- Linux/macOS: `mkdir -p "$HOME/.nrfconnect-apps/local"`
-- Windows: `md "%USERPROFILE%\.nrfconnect-apps\local"`
-
 ## Architecture of nRF Connect for Desktop
 
 Before starting, you should know the basic structure of nRF Connect for Desktop
