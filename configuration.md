@@ -54,33 +54,31 @@ can be specified in the app's package.json file.
 
 As a general rule, apps should use `devDependencies` instead of `dependencies`
 when possible. This will keep the app's size to a minimum. At build time,
-webpack will bundle all the code that the app needs to run, so the dependencies
+esbuild will bundle all the code that the app needs to run, so the dependencies
 are normally only needed at build time.
 
-Some modules may not be possible to bundle with webpack. This could be native
-modules or modules that use some special syntax that webpack does not support.
+Some modules may not be possible to bundle with esbuild. This could be native
+modules or modules that use some special syntax that esbuild does not support.
 In this case, the module should be added to `dependencies` instead of
 `devDependencies`, and also added to `bundledDependencies` so that it is
 included in the tarball that is published to npm.
 
-## Webpack
+## esbuild
 
-The
-[nRF Connect boilerplate app](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate)
-comes with a webpack configuration that is ready to use. Normally, app
-developers should not need to edit this, but in some special cases it might be
-necessary, e.g. to add extra loaders, file extensions, etc. Refer to the
-[webpack documentation](https://webpack.js.org/) for more information. The below
-sections describe a few peculiarities about webpack in nRF Connect that might be
-useful to know.
+[`pc-nrfconnect-shared` provides a script `run-esbuild`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared/blob/f37df1b07394d9b26e93503eca33b12f12d5b210/package.json#L16)
+to run `esbuild` with a configuration that is ready to use. The
+[nRF Connect boilerplate app defines `scripts` to run `esbuild`](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate/blob/f337484c811d4725b4cff33dd2da4cd6e185f2ea/package.json#L24-L27)
+to build the app.
+
+Normally, app developers should not need to edit this, but you are free to
+bundle apps in another way if that suits you better.
 
 ### Externals
 
-Apps can import a few modules from nRF Connect. The default webpack
-configuration ignores these by adding them as
-[externals](https://webpack.js.org/configuration/externals/), as they are only
-available at runtime. The same is automatically done for any `dependencies` from
-package.json.
+Apps can import a few modules from nRF Connect.
+[The default `esbuild` configuration ignores these by adding them as `external`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared/blob/f37df1b07394d9b26e93503eca33b12f12d5b210/scripts/esbuild-renderer.js#L36-L61),
+as they are available at runtime. The same is automatically done for any
+`dependencies` from package.json.
 
 ## Release notes
 

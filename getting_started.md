@@ -62,7 +62,7 @@ platform-specific variant must be downloaded or compiled.
 
 Besides common code `pc-nrfconnect-shared` also provides common package
 dependencies, scripts and configurations for all official applications and the
-core. E.g. it includes configurations for [webpack](https://webpack.js.org),
+core. E.g. it includes configurations for [esbuild](https://esbuild.github.io),
 [ESLint](https://eslint.org) and [Jest](https://jestjs.io) as well as scripts to
 run them.
 
