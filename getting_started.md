@@ -48,13 +48,13 @@ contains
 contains the common code for all apps: UI elements and code to give lower level
 access hardware.
 
-A bit unusual: The common code is not only provided during development and then
+A bit unusual: Some common libraries are not only provided during development and then
 bundled into the apps. Instead the launcher also provides these libraries during
 runtime, so that the individual apps do not have to include the shared code
 themselves.
 
 Providing the common libraries through the launcher at runtime has two
-advantages for the apps: The apps can be a lot smaller and they are usually
+advantages for the apps: The apps can be smaller and they are usually
 platform independent, as the only platform specific parts are in the core.
 
 Conversely, this means that the core is platform dependent and a
