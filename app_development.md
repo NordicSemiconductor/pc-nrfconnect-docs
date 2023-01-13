@@ -10,8 +10,8 @@ how you do everyday development now:
 ## Install dependencies
 
 Like on most Node.js projects, you need to install the dependencies once at the
-beginning with `npm install` and only need to repeat that later if the
-dependencies change.
+beginning with `npm ci` and only need to repeat that later if the dependencies
+change.
 
 ## Compiling
 
