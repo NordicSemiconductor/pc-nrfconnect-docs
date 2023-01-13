@@ -46,7 +46,7 @@ are met.
 
 You now have everything set up for
 [everyday app development](./app_development), so read up about that. Then
-change the implementation in `index.jsx` to adjust the behavior of the app.
+change the implementation in `index.tsx` to adjust the behavior of the app.
 
 Read the further documentation beginning with the
 [API reference](./api_reference) and source code of the official apps to get a

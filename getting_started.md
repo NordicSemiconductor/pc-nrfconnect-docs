@@ -13,13 +13,16 @@ Some familiarity with React and Redux is recommended in order to create apps.
 You should at least understand concepts like JSX, props, actions, reducers, and
 immutable state.
 
+It would be fine to develop in JavaScript but we do most of our development in
+TypeScript these days. So we recommend that and provide the tooling for it.
+
 ### Install development tools
 
 You should have a basic setup and little familiarity with these:
 
 - [Node.js](https://nodejs.org) (at least version 14)
 - [Git](https://git-scm.com/downloads)
-- An editor with good JavaScript support (e.g. VS Code, Atom, WebStorm)
+- An editor with good TypeScript support (e.g. VS Code, Atom, WebStorm)
 
 ### Install nRF Connect
 
