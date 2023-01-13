@@ -13,13 +13,16 @@ Some familiarity with React and Redux is recommended in order to create apps.
 You should at least understand concepts like JSX, props, actions, reducers, and
 immutable state.
 
+It would be fine to develop in JavaScript but we do most of our development in
+TypeScript these days. So we recommend that and provide the tooling for it.
+
 ### Install development tools
 
 You should have a basic setup and little familiarity with these:
 
 - [Node.js](https://nodejs.org) (at least version 14)
 - [Git](https://git-scm.com/downloads)
-- An editor with good JavaScript support (e.g. VS Code, Atom, WebStorm)
+- An editor with good TypeScript support (e.g. VS Code, Atom, WebStorm)
 
 ### Install nRF Connect
 
@@ -27,12 +30,6 @@ If you only want to develop (existing or new) apps, it is sufficient to have nRF
 Connect for Desktop installed as a binary. If you do not have it installed
 already, just follow the
 [instructions on how to install nRF Connect for Desktop](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher#using-nrf-connect-for-desktop).
-
-Also create the `~/.nrfconnect-apps/local` directory if it does not already
-exist:
-
-- Linux/macOS: `mkdir -p "$HOME/.nrfconnect-apps/local"`
-- Windows: `md "%USERPROFILE%\.nrfconnect-apps\local"`
 
 ## Architecture of nRF Connect for Desktop
 
@@ -54,21 +51,21 @@ contains
 contains the common code for all apps: UI elements and code to give lower level
 access hardware.
 
-A bit unusual: The common code is not only provided during development and then
-bundled into the apps. Instead the launcher also provides these libraries during
-runtime, so that the individual apps do not have to include the shared code
-themselves.
+A bit unusual: Some common libraries are not only provided during development
+and then bundled into the apps. Instead the launcher also provides these
+libraries during runtime, so that the individual apps do not have to include the
+shared code themselves.
 
 Providing the common libraries through the launcher at runtime has two
-advantages for the apps: The apps can be a lot smaller and they are usually
-platform independent, as the only platform specific parts are in the core.
+advantages for the apps: The apps can be smaller and they are usually platform
+independent, as the only platform specific parts are in the core.
 
 Conversely, this means that the core is platform dependent and a
 platform-specific variant must be downloaded or compiled.
 
 Besides common code `pc-nrfconnect-shared` also provides common package
 dependencies, scripts and configurations for all official applications and the
-core. E.g. it includes configurations for [webpack](https://webpack.js.org),
+core. E.g. it includes configurations for [esbuild](https://esbuild.github.io),
 [ESLint](https://eslint.org) and [Jest](https://jestjs.io) as well as scripts to
 run them.
 
