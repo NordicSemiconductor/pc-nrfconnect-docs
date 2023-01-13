@@ -46,25 +46,6 @@ Chrome Developer Tools can be opened by pressing `Ctrl+Alt+I` (Windows/Linux) or
 You can run the static checks (like linting and type checking) with
 `npm run check` and the unit tests with `npm test`.
 
-### Using ESLint in an IDE
-
-We use
-[a common ESLint configuration in `pc-nrfconnect-shared`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared/blob/master/config/eslintrc.json)
-for all projects. But since most IDEs only look in the projects main directory
-for the ESLint configuration your IDE may not pick it up by default and you have
-to configure it manually. For example for VS Code, you should put this into your
-`settings.json`:
-
-```json
-"eslint.options": {
-    "configFile": "node_modules/pc-nrfconnect-shared/config/eslintrc.json"
-}
-```
-
-If you work a lot with our projects you may want to put this in your user
-settings, otherwise put it in the workspace settings, as described in
-[the VS Code documentation on settings](https://code.visualstudio.com/docs/getstarted/settings).
-
 ## Distribute development versions
 
 When you want to give your development version of an app to others, run
