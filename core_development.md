@@ -80,27 +80,45 @@ instance too.
 
 When you are developing common code in `pc-nrfconnect-shared` and you want to
 check the changes quickly in the launcher or an app the steps above are not
-sufficient, because by default the launcher will include a released version of
+sufficient, because by default the apps will include a released version of
 `pc-nrfconnect-shared` from GitHub, not your local one. But with some additional
 effort you can achieve this by leveraging
-[`npm-link`](https://docs.npmjs.com/cli/link):
+[`npm-link`](https://docs.npmjs.com/cli/link).
 
-1. Have both, `pc-nrfconnect-launcher` and `pc-nrfconnect-shared` checked out
-   into directories next to each other.
-2. In the directory `pc-nrfconnect-launcher` run
+**Note**: These steps currently only work with versions of npm < 7. This is due to [a change in the behaviour of `npm link`](https://github.com/npm/cli/issues/2339) in later versions.
+
+1. Copy the absolute path to the application you wish to use with the local copy of `pc-nrfconnect-shared` (e.g. `/home/ola/.nrf-connect/local/pc-nrfconnect-programmer`)
+2. In `pc-nrfconnect-shared`, locate the `packageJson.ts` file and replace the line
+
+```typescript
+import packageJsons from "../../../../package.json";
 ```
-npm install; npm link ../pc-nrfconnect-shared
+
+with
+
+```typescript
+import packageJsons from "/home/ola/.nrfconnect-apps/local/pc-nrfconnect-programmer/package.json";
 ```
+
+(Replacing the path with the one you copied in the previous step).
+
+3. In the application directory, run
+
+```
+npm install; npm link ../path/to/pc-nrfconnect-shared
+```
+
 3. In the directory `pc-nrfconnect-shared` run
+
 ```
 npm ci --prod
 ```
 
 With this setup, you can make changes in `pc-nrfconnect-shared`, then recompile
-`pc-nrfconnect-launcher` (`pc-nrfconnect-shared` does not need to be compiled),
+the application (`pc-nrfconnect-shared` does not need to be compiled),
 and immediately see the effects of the changes in `pc-nrfconnect-shared`.
 Usually the best setup is again to use `npm run dev` in
-`pc-nrfconnect-launcher`, as described above in
+the application, as described above in
 [“Running the launcher from source”](#running-the-launcher-from-source).
 
 If you forget to run `npm ci --prod` in `pc-nrfconnect-shared`, you may get
@@ -109,10 +127,10 @@ errors because of conflicting package versions, especially of `react` and
 
 ### Caveat:
 
-If you later run `npm install` in the directory `pc-nrfconnect-launcher` (e.g.
+If you later run `npm install` in the application directory (e.g.
 because you install additional packages), the link to `pc-nrfconnect-shared`
 often gets lost. In that case you usually have to repeat running
-`npm link ../pc-nrfconnect-shared` in the directory `pc-nrfconnect-launcher` and
+`npm link ../pc-nrfconnect-shared` in the application directory and
 then `npm ci --prod` in the directory `pc-nrfconnect-shared`.
 
 If you later run `npm install` in the directory `pc-nrfconnect-shared` (e.g.
