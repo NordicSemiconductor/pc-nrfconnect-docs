@@ -3,23 +3,31 @@
 
 # Changelogs
 
-In the frontend, we keep a changelog in every project.
+We keep a changelog in every project.
 
 ## Example for a changelog
 
 ```md
 ## Unreleased
+
 ### Removed
+
 - Preliminary instructions.
 
 ## 0.6.1 - 2021-06-30
+
 ### Fixed
+
 - Crash on macOS when stopping trace.
 
 ## 0.6.0 - 2021-06-22
+
 ### Added
+
 - Button in the side panel to convert trace.
+
 ### Changed
+
 - PCAP-NG files have the file extension `.pcapng`.
 ```
 
@@ -35,7 +43,8 @@ deviate from it or complement it.
   relevant for them. Remember who the reader is:
   - In apps and in the normal changelog of the launcher: Users. They see the
     changelog in the launcher.
-  - In `Changelog-dev.md` of the launcher and shared: Developers.
+  - In `Changelog.md` of shared and `Changelog.minor.md` of the launcher:
+    Developers.
   - Users are especially not aware of technical internals. E.g. they do not know
     what it means that a library is upgraded. Instead describe what (and if) the
     library upgrade leads to observable changes for them (e.g. instead of
@@ -52,10 +61,12 @@ deviate from it or complement it.
 
 ```md
 ### Added
+
 - Added button to convert trace.
 - Added choice for the trace format.
 
 ### Fixed
+
 - Fixed crash on stopping trace.
 - Fixed wrong file size.
 ```
@@ -64,10 +75,12 @@ Instead drop the repeated `Added` and `Fixed` and write like this:
 
 ```md
 ### Added
+
 - Button to convert trace.
 - Choice for the trace format.
 
 ### Fixed
+
 - Crash on stopping trace.
 - Wrong file size.
 ```
