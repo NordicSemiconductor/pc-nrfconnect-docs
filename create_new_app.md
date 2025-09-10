@@ -11,8 +11,8 @@ are met.
 1.  Choose a template for the new project: While you could start out with a
     blank Node.js project, we recommend to begin with
     [`pc-nrfconnect-boilerplate`](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate).
-    You could also begin with a more full fledged project like a
-    [`pc-nrfconnect-ble`](https://github.com/NordicSemiconductor/pc-nrfconnect-ble)
+    You could also begin with a more full fledged project like
+    [`pc-nrfconnect-npm`](https://github.com/NordicSemiconductor/pc-nrfconnect-npm)
     or a smaller one like
     [`pc-nrfconnect-rssi`](https://github.com/NordicSemiconductor/pc-nrfconnect-rssi)
     and strip out what you do not need, but our recommendation is to just look

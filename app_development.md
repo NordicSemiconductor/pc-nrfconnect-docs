@@ -38,8 +38,7 @@ When you edit the source of the app and it is recompiled (probably by keeping
 (macOS) in the running app window will make it reload.
 
 Chrome Developer Tools can be opened by pressing `Ctrl+Alt+I` (Windows/Linux) or
-`Cmd+Option+I` (macOS). We recommend that you
-[install the DevTools for React and Redux](./core_development#installing-the-electron-dev-tools).
+`Cmd+Option+I` (macOS).
 
 ## Testing
 

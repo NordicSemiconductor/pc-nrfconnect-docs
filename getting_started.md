@@ -20,7 +20,7 @@ TypeScript these days. So we recommend that and provide the tooling for it.
 
 You should have a basic setup and little familiarity with these:
 
-- [Node.js](https://nodejs.org) (at least version 14)
+- [Node.js](https://nodejs.org) (at least version 20)
 - [Git](https://git-scm.com/downloads)
 - An editor with good TypeScript support (e.g. VS Code, Atom, WebStorm)
 
@@ -29,7 +29,7 @@ You should have a basic setup and little familiarity with these:
 If you only want to develop (existing or new) apps, it is sufficient to have nRF
 Connect for Desktop installed as a binary. If you do not have it installed
 already, just follow the
-[instructions on how to install nRF Connect for Desktop](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher#using-nrf-connect-for-desktop).
+[instructions on how to install nRF Connect for Desktop](https://docs.nordicsemi.com/bundle/nrf-connect-desktop).
 
 ## Architecture of nRF Connect for Desktop
 
@@ -46,6 +46,8 @@ contains
 - The launcher from which the apps are installed and launched
 - The [Electron shell](https://electronjs.org) in which the launcher and the
   apps run
+- The launcher also coordinates access to shared resources, e.g. if multiple
+  apps use the same serial port to access the same device.
 
 [`pc-nrfconnect-shared`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared)
 contains the common code for all apps: UI elements and code to give lower level
@@ -62,6 +64,13 @@ independent, as the only platform specific parts are in the core.
 
 Conversely, this means that the core is platform dependent and a
 platform-specific variant must be downloaded or compiled.
+
+`pc-nrfconnect-shared` also contains code to use
+[nRF Util](https://docs.nordicsemi.com/bundle/nrfutil), the command line tool
+used by nRF Connect for list devices and in some cases to interact with them.
+There is code to install the core of nRF Util as well as needed commands in
+specific versions in sandbox, so they are independent of other versions
+installed in the system.
 
 Besides common code `pc-nrfconnect-shared` also provides common package
 dependencies, scripts and configurations for all official applications and the
@@ -83,21 +92,14 @@ apps. This is described later, when we describe how to develop your own apps.
 There are some more projects that aid the development of apps for nRF Connect
 for Desktop:
 
-- Several projects are brought in as dependencies by the core which provide
-  access to the hardware:
-  - [`nrf-device-lib-js`](https://github.com/NordicPlayground/nrf-device-lib-js)
-    with JS binding for
-    [`nrf-device-lib`](https://github.com/NordicPlayground/nrf-device-lib) to
-    access the actual devices.
-  - [`pc-ble-driver-js`](https://github.com/NordicSemiconductor/pc-ble-driver-js)
-    with JS binding for the
-    [`pc-ble-driver`](https://github.com/NordicSemiconductor/pc-ble-driver)
-    library.
 - [`pc-nrfconnect-boilerplate`](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate)
   is a very minimal app, which is not useful on its own, but may be used as a
   template to start new apps.
 - [`pc-nrfconnect-docs`](https://github.com/NordicSemiconductor/pc-nrfconnect-docs)
-  contains these pages to describe how to develop nRF Connect for Desktop.
+  contains these pages to describe how to develop nRF Connect for Desktop
+- [`nrf-jlink-js`](https://github.com/NordicSemiconductor/nrf-jlink-js) checks
+  if the user has the version of SEGGER J-Link installed that we currently
+  recommend and can download the recommended version.
 
 ## Next steps
 
