@@ -43,7 +43,7 @@ The core resides in the two projects: `pc-nrfconnect-launcher` and `pc-nrfconnec
 
 #### pc-nrfconnect-launcher
 
-[`pc-nrfconnect-launcher`](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher)
+[`pc-nrfconnect-launcher`](https://github.com/nordicsemi/pc-nrfconnect-launcher)
 contains the following parts:
 
 - Launcher from which the apps are installed and launched; the launcher also coordinates access
@@ -54,7 +54,7 @@ contains the following parts:
 
 #### pc-nrfconnect-shared
 
-[`pc-nrfconnect-shared`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared)
+[`pc-nrfconnect-shared`](https://github.com/nordicsemi/pc-nrfconnect-shared)
 contains the common code for all apps: UI elements and code to give lower-level
 access to hardware.
 
@@ -95,11 +95,11 @@ apps. This is described in [Everyday app development](app_development.md).
 
 The following projects aid the development of apps for nRF Connect for Desktop:
 
-- [`pc-nrfconnect-boilerplate`](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate) -
+- [`pc-nrfconnect-boilerplate`](https://github.com/nordicsemi/pc-nrfconnect-boilerplate) -
   a minimal app that can be used as a template for new apps.
-- [`pc-nrfconnect-docs`](https://github.com/NordicSemiconductor/pc-nrfconnect-docs) -
+- [`pc-nrfconnect-docs`](https://github.com/nordicsemi/pc-nrfconnect-docs) -
   the repo that contains the pages you are reading.
-- [`nrf-jlink-js`](https://github.com/NordicSemiconductor/nrf-jlink-js) - for checking
+- [`nrf-jlink-js`](https://github.com/nordicsemi/nrf-jlink-js) - for checking
   if the user has the version of SEGGER J-Link installed that is currently
   recommended for nRF Connect for Desktop; this library allows for downloading
   the recommended version.
