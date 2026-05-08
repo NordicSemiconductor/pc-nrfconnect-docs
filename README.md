@@ -5,7 +5,7 @@ This repository documents how to develop using the nRF Connect for Desktop frame
 Read this documentation if you want to create a new nRF Connect for Desktop app, modify an existing
 app or modify the core of nRF Connect for Desktop itself.
 
-This documentation can [also be read online](https://NordicSemiconductor.github.io/pc-nrfconnect-docs/).
+This documentation can [also be read online](https://nordicsemi.github.io/pc-nrfconnect-docs/).
 
 ## Modifying the documentation
 
@@ -39,5 +39,5 @@ they are also required as per [GitHub Pages documentation](https://help.github.c
 ## Contributing
 
 See the
-[infos on contributing](https://nordicsemiconductor.github.io/pc-nrfconnect-docs/contributing)
+[infos on contributing](https://nordicsemi.github.io/pc-nrfconnect-docs/contributing)
 for details.

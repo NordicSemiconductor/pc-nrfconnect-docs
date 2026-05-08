@@ -55,7 +55,7 @@ The following custom rules apply:
   this project …”) in user-visible changelogs. It looks strange when viewed in
   the launcher.
 - Unlike on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/): Do not add links to the headers (like
-  [https://github.com/NordicSemiconductor/pc-nrfconnect-dtm/compare/v1.0.0...v1.1.0](https://github.com/NordicSemiconductor/pc-nrfconnect-dtm/compare/v1.0.0...v1.1.0)).
+  [https://github.com/nordicsemi/pc-nrfconnect-dtm/compare/v1.0.0...v1.1.0](https://github.com/nordicsemi/pc-nrfconnect-dtm/compare/v1.0.0...v1.1.0)).
   They are confusing for our users when displayed in the launcher.
 - End every entry with a full stop.
 - Do not duplicate the section headings “Fixed”, “Added” and alike in the

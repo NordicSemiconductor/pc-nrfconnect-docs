@@ -6,7 +6,7 @@
 Before you create a new app for nRF Connect for Desktop, make sure you meet
 all the required [prerequisites](getting_started#prerequisites).
 
-You could start out with a blank Node.js project, but it is recommended to begin with the [`pc-nrfconnect-boilerplate`](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate) project. While you could also copy an existing app (for example, [`pc-nrfconnect-npm`](https://github.com/NordicSemiconductor/pc-nrfconnect-npm) or [`pc-nrfconnect-rssi`](https://github.com/NordicSemiconductor/pc-nrfconnect-rssi)) and strip it of unneeded elements, it is better to start small and use the existing apps for reference.
+You could start out with a blank Node.js project, but it is recommended to begin with the [`pc-nrfconnect-boilerplate`](https://github.com/nordicsemi/pc-nrfconnect-boilerplate) project. While you could also copy an existing app (for example, [`pc-nrfconnect-npm`](https://github.com/nordicsemi/pc-nrfconnect-npm) or [`pc-nrfconnect-rssi`](https://github.com/nordicsemi/pc-nrfconnect-rssi)) and strip it of unneeded elements, it is better to start small and use the existing apps for reference.
 
 Complete the following steps to create a new app:
 
@@ -14,7 +14,7 @@ Complete the following steps to create a new app:
    directory by running the following commands in a terminal on Linux or macOS, or in Git bash on Windows:
 
         cd $HOME/.nrfconnect-apps/local
-        git clone https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate.git pc-nrfconnect-myapp
+        git clone https://github.com/nordicsemi/pc-nrfconnect-boilerplate.git pc-nrfconnect-myapp
         cd pc-nrfconnect-myapp
         rm -rf .git
 

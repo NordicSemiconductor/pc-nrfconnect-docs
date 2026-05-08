@@ -77,15 +77,15 @@ included in the tarball that is published to npm.
 
 ## esbuild
 
-`pc-nrfconnect-shared` provides the [`run-esbuild`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared/blob/caf1908a3ebf7f9a0a9b0ac0c660ab243db02687/package.json#L15) script to run esbuild with a configuration that is ready to use.
-The [nRF Connect boilerplate app defines `scripts` to run esbuild](https://github.com/NordicSemiconductor/pc-nrfconnect-boilerplate/blob/f337484c811d4725b4cff33dd2da4cd6e185f2ea/package.json#L24-L27) to build the app.
+`pc-nrfconnect-shared` provides the [`run-esbuild`](https://github.com/nordicsemi/pc-nrfconnect-shared/blob/caf1908a3ebf7f9a0a9b0ac0c660ab243db02687/package.json#L15) script to run esbuild with a configuration that is ready to use.
+The [nRF Connect boilerplate app defines `scripts` to run esbuild](https://github.com/nordicsemi/pc-nrfconnect-boilerplate/blob/f337484c811d4725b4cff33dd2da4cd6e185f2ea/package.json#L24-L27) to build the app.
 
 Normally, you do not need to edit this, but you are free to bundle apps in another way if that suits you better.
 
 ### External modules
 
 Apps can import a few modules from nRF Connect for Desktop.
-The default esbuild configuration ignores these by [adding them as `external`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared/blob/caf1908a3ebf7f9a0a9b0ac0c660ab243db02687/scripts/esbuild-renderer.ts#L51-L62),
+The default esbuild configuration ignores these by [adding them as `external`](https://github.com/nordicsemi/pc-nrfconnect-shared/blob/caf1908a3ebf7f9a0a9b0ac0c660ab243db02687/scripts/esbuild-renderer.ts#L51-L62),
 as they are available at runtime. The same is automatically done for any `dependencies` from `package.json`.
 
 ## Release notes

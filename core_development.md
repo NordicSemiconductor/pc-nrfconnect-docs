@@ -12,8 +12,8 @@ code that is common for the apps.
 As detailed in the [architecture summary](./getting_started#the-core), the
 core is split into the following projects:
 
-* [`pc-nrfconnect-launcher`](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher) - for the launcher part
-* [`pc-nrfconnect-shared`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared) - for the shared code
+* [`pc-nrfconnect-launcher`](https://github.com/nordicsemi/pc-nrfconnect-launcher) - for the launcher part
+* [`pc-nrfconnect-shared`](https://github.com/nordicsemi/pc-nrfconnect-shared) - for the shared code
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ for developing the core on macOS.
 Complete the following steps:
 
 1. Clone the source files from
-   [https://github.com/NordicSemiconductor/pc-nrfconnect-launcher](https://github.com/NordicSemiconductor/pc-nrfconnect-launcher).
+   [https://github.com/nordicsemi/pc-nrfconnect-launcher](https://github.com/nordicsemi/pc-nrfconnect-launcher).
 
 2. Install the dependencies by running the following command:
    ```
@@ -70,8 +70,8 @@ Complete the following steps:
 
 ## Developing common code in pc-nrfconnect-shared
 
-Development of [`pc-nrfconnect-shared`](https://github.com/NordicSemiconductor/pc-nrfconnect-shared) is usually only done by the core nRF Connect for Desktop team, but everyone is welcome to propose changes to it.
+Development of [`pc-nrfconnect-shared`](https://github.com/nordicsemi/pc-nrfconnect-shared) is usually only done by the core nRF Connect for Desktop team, but everyone is welcome to propose changes to it.
 
 Generally, it is recommended to stay up-to-date with the version of `pc-nrfconnect-shared` you are using, especially new releases of the launcher might require that all apps are updated to a certain version of it.
 
-The `pc-nrfconnect-shared` repository contains a [Changelog](https://github.com/NordicSemiconductor/pc-nrfconnect-shared/blob/main/Changelog.md) where the “Steps to upgrade when using this package” sections are especially important to read when upgrading to newer versions.
+The `pc-nrfconnect-shared` repository contains a [Changelog](https://github.com/nordicsemi/pc-nrfconnect-shared/blob/main/Changelog.md) where the “Steps to upgrade when using this package” sections are especially important to read when upgrading to newer versions.
